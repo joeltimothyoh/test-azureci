@@ -7,7 +7,7 @@ trigger:
   - powershell
 
 jobs:
-- job: 'PowerShell 2'
+- job: 'PowerShell_2'
   continueOnError: false
   pool:
     name: Default
@@ -24,7 +24,7 @@ jobs:
   - powershell: |
       Get-ChildItem
 
-- job: 'PowerShell 3'
+- job: 'PowerShell_3'
   continueOnError: false
   pool:
     name: Default
@@ -41,7 +41,7 @@ jobs:
   - powershell: |
       Get-ChildItem
 
-- job: 'PowerShell 4'
+- job: 'PowerShell_4'
   continueOnError: false
   pool:
     name: Default
