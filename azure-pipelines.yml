@@ -50,9 +50,10 @@ jobs:
   steps:
   - script: |
       whoami
-      cat /etc/*release
+      system_profiler
+      lscpu
       df -h
-      free
+      top -l 1 -s 0 | grep PhysMem
 
 - job: Ubuntu1604
   pool:
@@ -61,5 +62,6 @@ jobs:
   - script: |
       whoami
       cat /etc/*release
+      lscpu
       df -h
       free
