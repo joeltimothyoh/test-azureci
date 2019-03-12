@@ -12,7 +12,7 @@ jobs:
   pool:
     vmImage: 'windows-2019'
   steps:
-  powershell: |
+  - powershell: |
       systeminfo
       Get-PSDrive
       $PSVersionTable
@@ -21,7 +21,7 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  powershell: |
+  - powershell: |
       systeminfo
       Get-PSDrive
       $PSVersionTable
@@ -30,7 +30,7 @@ jobs:
   pool:
     vmImage: 'vs2015-win2012r2'
   steps:
-  powershell: |
+  - powershell: |
       systeminfo
       Get-PSDrive
       $PSVersionTable
@@ -39,7 +39,7 @@ jobs:
   pool:
     vmImage: 'win1803'
   steps:
-  powershell: |
+  - powershell: |
       systeminfo
       Get-PSDrive
       $PSVersionTable
@@ -48,18 +48,18 @@ jobs:
   pool:
     vmImage: 'macOS-10.13'
   steps:
-  script: |
-    whoami
-    cat /etc/*release
-    df -h
-    free
+  - script: |
+      whoami
+      cat /etc/*release
+      df -h
+      free
 
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-  script: |
-    whoami
-    cat /etc/*release
-    df -h
-    free
+  - script: |
+      whoami
+      cat /etc/*release
+      df -h
+      free
