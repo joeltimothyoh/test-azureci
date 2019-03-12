@@ -10,8 +10,12 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: |
+    whoami
+    cat /etc/*release
+    df -h
+    free
+  displayName: 'System info'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
