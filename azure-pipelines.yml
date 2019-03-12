@@ -20,7 +20,7 @@ jobs:
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
   - pwsh: |
-      $($PSVersionTable
+      $PSVersionTable
 
 - job: 'PowerShell_3'
   continueOnError: false
@@ -35,7 +35,7 @@ jobs:
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
   - pwsh: |
-      $($PSVersionTable
+      $PSVersionTable
 
 - job: 'PowerShell_4'
   continueOnError: false
@@ -50,4 +50,21 @@ jobs:
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
   - pwsh: |
-      $($PSVersionTable
+      $PSVersionTable
+
+- job: 'PowerShell_Core'
+  continueOnError: false
+  pool:
+    vmImage: 'ubuntu-16.04'
+  workspace:
+    clean: all
+  timeoutInMinutes: 5
+  steps:
+  - script: |
+      whoami
+      cat /etc/*release
+      lscpu
+      df -h
+      free
+  - pwsh: |
+      $PSVersionTable
