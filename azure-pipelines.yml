@@ -15,7 +15,7 @@ jobs:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $PSVersionTable
+      $($PSVersionTable | Out-String).Trim()
 
 - job: WindowsServer2016
   pool:
@@ -24,7 +24,7 @@ jobs:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $PSVersionTable
+      $($PSVersionTable | Out-String).Trim()
 
 - job: WindowsServer2012R2
   pool:
@@ -33,7 +33,7 @@ jobs:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $PSVersionTable
+      $($PSVersionTable | Out-String).Trim()
 
 - job: WindowsServer1803
   pool:
@@ -42,7 +42,7 @@ jobs:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $PSVersionTable
+      $($PSVersionTable | Out-String).Trim()
 
 - job: macOS1013
   pool:
