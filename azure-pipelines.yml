@@ -14,7 +14,7 @@ jobs:
     demands:
       - ps2
   workspace:
-    clean all
+    clean: all
   timeoutInMinutes: 5
   steps:
   - powershell: |
@@ -31,7 +31,7 @@ jobs:
     demands:
       - ps3
   workspace:
-    clean all
+    clean: all
   timeoutInMinutes: 5
   steps:
   - powershell: |
@@ -48,7 +48,7 @@ jobs:
     demands:
       - ps4
   workspace:
-    clean all
+    clean: all
   timeoutInMinutes: 5
   steps:
   - powershell: |
