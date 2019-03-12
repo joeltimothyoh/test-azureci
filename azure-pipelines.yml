@@ -61,7 +61,7 @@ jobs:
   steps:
   - script: |
       whoami
-      system_profiler
+      system_profiler -detailLevel basic
       lscpu
       df -h
       top -l 1 -s 0 | grep PhysMem
