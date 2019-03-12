@@ -4,64 +4,56 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
-- debug
+  - powershell
 
 jobs:
-- job: WindowsServer2019
+- job: 'PowerShell 2'
+  continueOnError: false
   pool:
-    vmImage: 'windows-2019'
+    name: Default
+    demands:
+      - ps2
+  workspace:
+    clean all
+  timeoutInMinutes: 5
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
+  - powershell: |
+      Get-ChildItem
 
-- job: WindowsServer2016
+- job: 'PowerShell 3'
+  continueOnError: false
   pool:
-    vmImage: 'vs2017-win2016'
+    name: Default
+    demands:
+      - ps3
+  workspace:
+    clean all
+  timeoutInMinutes: 5
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
+  - powershell: |
+      Get-ChildItem
 
-- job: WindowsServer2012R2
+- job: 'PowerShell 4'
+  continueOnError: false
   pool:
-    vmImage: 'vs2015-win2012r2'
+    name: Default
+    demands:
+      - ps4
+  workspace:
+    clean all
+  timeoutInMinutes: 5
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-
-- job: WindowsServer1803
-  pool:
-    vmImage: 'win1803'
-  steps:
   - powershell: |
-      systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-
-- job: Ubuntu1604
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - script: |
-      whoami
-      cat /etc/*release
-      lscpu
-      df -h
-      free
-
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - script: |
-      whoami
-      system_profiler
-      lscpu
-      df -h
-      top -l 1 -s 0 | grep PhysMem
+      Get-ChildItem
