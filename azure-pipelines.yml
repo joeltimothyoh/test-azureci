@@ -32,14 +32,14 @@ jobs:
   steps:
   - script: echo hello from Windows
 
-- job: macOS10.13
-  pool:
-    vmImage: 'macOS-1013'
-  steps:
-  - script: echo hello from macOS
+# - job: macOS10.13
+#   pool:
+#     vmImage: 'macOS-1013'
+#   steps:
+#   - script: echo hello from macOS
 
-- job: Ubuntu16.04
-  pool:
-    vmImage: 'ubuntu-1604'
-  steps:
-  - script: echo hello from Linux
+# - job: Ubuntu16.04
+#   pool:
+#     vmImage: 'ubuntu-1604'
+#   steps:
+#   - script: echo hello from Linux
