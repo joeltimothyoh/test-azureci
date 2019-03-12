@@ -10,7 +10,7 @@ jobs:
 - job: 'PowerShell_2'
   continueOnError: false
   pool:
-    name: Default
+    vmImage: 'vs2015-win2012r2'
     demands:
       - ps2
   workspace:
@@ -27,7 +27,7 @@ jobs:
 - job: 'PowerShell_3'
   continueOnError: false
   pool:
-    name: Default
+    vmImage: 'vs2015-win2012r2'
     demands:
       - ps3
   workspace:
@@ -44,7 +44,7 @@ jobs:
 - job: 'PowerShell_4'
   continueOnError: false
   pool:
-    name: Default
+    vmImage: 'vs2015-win2012r2'
     demands:
       - ps4
   workspace:
