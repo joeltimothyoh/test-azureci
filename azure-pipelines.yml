@@ -44,17 +44,6 @@ jobs:
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
 
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - script: |
-      whoami
-      system_profiler
-      lscpu
-      df -h
-      top -l 1 -s 0 | grep PhysMem
-
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
@@ -65,3 +54,14 @@ jobs:
       lscpu
       df -h
       free
+
+- job: macOS1013
+  pool:
+    vmImage: 'macOS-10.13'
+  steps:
+  - script: |
+      whoami
+      system_profiler
+      lscpu
+      df -h
+      top -l 1 -s 0 | grep PhysMem
