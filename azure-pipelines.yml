@@ -4,55 +4,10 @@
 # https://aka.ms/yaml
 
 trigger:
-  - powershell
+  - triggers
 
 jobs:
-- job: 'PowerShell_2'
-  continueOnError: false
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
-  steps:
-  - powershell: |
-      systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-  - pwsh: |
-      $PSVersionTable
-
-- job: 'PowerShell_3'
-  continueOnError: false
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
-  steps:
-  - powershell: |
-      systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-  - pwsh: |
-      $PSVersionTable
-
-- job: 'PowerShell_4'
-  continueOnError: false
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
-  steps:
-  - powershell: |
-      systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-  - pwsh: |
-      $PSVersionTable
-
-- job: 'PowerShell_Core'
+- job: 'Ubuntu_1604'
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
