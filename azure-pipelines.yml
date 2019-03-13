@@ -59,8 +59,13 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
+      docker unknown command
   - script: |
-      docker unknowncommand
+      echo $VAR1
+      echo $EXPORTED_VAR1
+      docker images
+      docker ps -a
+      docker volume ls
   - script: |
       docker logout
     condition: always()
