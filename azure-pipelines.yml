@@ -29,3 +29,6 @@ jobs:
       free
   - script: |
       printenv
+  - script: | 
+      echo $TESTVAR1
+      echo $TESTVAR2
