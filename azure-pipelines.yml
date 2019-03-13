@@ -13,6 +13,7 @@ steps:
 - script: |
     whoami
     cat /etc/*release
+    lscpu
     df -h
     free
   displayName: 'System info'
