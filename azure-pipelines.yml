@@ -32,3 +32,5 @@ jobs:
   - script: | 
       echo $TESTVAR1
       echo $TESTVAR2
+  - script: |
+      docker version
