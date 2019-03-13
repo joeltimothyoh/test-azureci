@@ -39,6 +39,7 @@ jobs:
       lscpu
       df -h
       free
+      docker info
       docker version
     displayName: 'System Info'
   - script: |
