@@ -22,6 +22,7 @@ jobs:
   timeoutInMinutes: 5
   strategy:
     parallel: 4
+    maxParallel:: 4
     # matrix:
     #   Matrix1:
     #     MATRIX_VAR: 'matrix1'
