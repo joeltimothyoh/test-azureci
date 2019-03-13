@@ -45,8 +45,8 @@ jobs:
     displayName: 'Environment variables'
   - script: |
       # set -e
-      echo $TESTVAR1
-      echo $TESTVAR2
+      echo $GLOBAL_VAR1
+      echo $GLOBAL_VAR2
       echo $MATRIX_VAR
       VAR1=value1
       docker version
@@ -55,4 +55,4 @@ jobs:
       # docker ps -a
       # docker volume ls
   - script: |
-      echo VAR1
+      echo $VAR1
