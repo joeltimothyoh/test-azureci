@@ -21,21 +21,17 @@ jobs:
     clean: all
   timeoutInMinutes: 5
   strategy:
-    parallel: 4
-    maxParallel:: 4
-    # matrix:
-    #   Matrix1:
-    #     MATRIX_VAR: 'matrix1'
-    #   Matrix2:
-    #     MATRIX_VAR: 'matrix2'
-    #   Matrix3:
-    #     MATRIX_VAR: 'matrix3'
-    #   Matrix4:
-    #     MATRIX_VAR: 'matrix4'
-    #   Matrix5:
-    #     MATRIX_VAR: 'matrix5'
-    #   Matrix6:
-    #     MATRIX_VAR: 'matrix6'
+    # maxParallel:: 2
+    # parallel: 4
+    matrix:
+      Matrix1:
+        MATRIX_VAR: 'matrix1'
+      Matrix2:
+        MATRIX_VAR: 'matrix2'
+      Matrix3:
+        MATRIX_VAR: 'matrix3'
+      Matrix4:
+        MATRIX_VAR: 'matrix4'
   steps:
   - script: |
       whoami
