@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-  - docker
+  - vm
 
 variables:
   - name: TESTVAR1
