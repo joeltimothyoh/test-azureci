@@ -54,7 +54,8 @@ jobs:
       echo $VAR1
       EXPORTED_VAR1=exported1
       export EXPORTED_VAR1
-      docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
+      docker run -t ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
+      docker volume create volume1
       docker images
       docker ps -a
       docker volume ls
