@@ -38,7 +38,7 @@ jobs:
   - script: |
       echo $TESTVAR1
       echo $TESTVAR2
-      echo $TESTVAR3
+      echo $MATRIX_VAR
       docker version
   - script: |
       docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
