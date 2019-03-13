@@ -28,10 +28,10 @@ jobs:
         MATRIX_VAR: 'matrix1'
       Matrix2:
         MATRIX_VAR: 'matrix2'
-      Matrix3:
-        MATRIX_VAR: 'matrix3'
-      Matrix4:
-        MATRIX_VAR: 'matrix4'
+      # Matrix3:
+      #   MATRIX_VAR: 'matrix3'
+      # Matrix4:
+      #   MATRIX_VAR: 'matrix4'
   steps:
   - script: |
       whoami
@@ -39,6 +39,7 @@ jobs:
       lscpu
       df -h
       free
+      docker version
     displayName: 'System Info'
   - script: |
       printenv
@@ -52,11 +53,13 @@ jobs:
       echo $VAR1
       EXPORTED_VAR1=exported1
       export EXPORTED_VAR1
-      docker version
-      # docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
-      # docker images
-      # docker ps -a
-      # docker volume ls
+      docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
+      docker images
+      docker ps -a
+      docker volume ls
   - script: |
       echo $VAR1
       echo $EXPORTED_VAR1
+      docker images
+      docker ps -a
+      docker volume ls
