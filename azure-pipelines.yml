@@ -65,3 +65,11 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
+- job: 'Ubuntu_1604_B'
+  dependsOn: 'Ubuntu_1604'
+  continueOnError: false
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - script: |
+      echo hello from job b!p
