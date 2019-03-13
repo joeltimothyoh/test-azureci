@@ -29,8 +29,23 @@ jobs:
       free
   - script: |
       printenv
-  - script: | 
+  - script: |
       echo $TESTVAR1
       echo $TESTVAR2
+      docker version
+
+- job: 'Container'
+  container: ubuntu:16.04
+  steps:
   - script: |
+      whoami
+      cat /etc/*release
+      lscpu
+      df -h
+      free
+  - script: |
+      printenv
+  - script: |
+      echo $TESTVAR1
+      echo $TESTVAR2
       docker version
