@@ -4,7 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-  - triggers
+  - docker
+
+variables:
+  - name: TESTVAR1
+    value: value1
+  - name: TESTVAR2
+    value: value2
 
 jobs:
 - job: 'Ubuntu_1604'
