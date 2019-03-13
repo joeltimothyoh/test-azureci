@@ -20,6 +20,12 @@ jobs:
   workspace:
     clean: all
   timeoutInMinutes: 5
+  strategy:
+    matrix:
+      Matrix1:
+        MATRIX_VAR: 'value3'
+      Matrix2:
+        MATRIX_VAR: 'value4'
   steps:
   - script: |
       whoami
@@ -32,6 +38,7 @@ jobs:
   - script: |
       echo $TESTVAR1
       echo $TESTVAR2
+      echo $TESTVAR3
       docker version
   - script: |
       docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
