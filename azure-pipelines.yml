@@ -60,11 +60,10 @@ jobs:
       docker ps -a
       docker volume ls
   - script: |
-      echo $VAR1
-      echo $EXPORTED_VAR1
-      docker images
-      docker ps -a
-      docker volume ls
+      docker unknowncommand
+  - script: |
+      docker logout
+    condition: always()
 - job: 'Ubuntu_1604_B'
   dependsOn: 'Ubuntu_1604'
   continueOnError: false
@@ -72,4 +71,4 @@ jobs:
     vmImage: 'ubuntu-16.04'
   steps:
   - script: |
-      echo hello from job b!p
+      echo hello from job b!
