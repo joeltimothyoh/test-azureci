@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-  - none
+  - none      # none disables CI for pushes but not via UI / REST api
 
 jobs:
 - job: 'Ubuntu_1604'
