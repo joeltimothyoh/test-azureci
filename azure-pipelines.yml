@@ -23,9 +23,17 @@ jobs:
   strategy:
     matrix:
       Matrix1:
-        MATRIX_VAR: 'value3'
+        MATRIX_VAR: 'matrix1'
       Matrix2:
-        MATRIX_VAR: 'value4'
+        MATRIX_VAR: 'matrix2'
+      Matrix3:
+        MATRIX_VAR: 'matrix3'
+      Matrix4:
+        MATRIX_VAR: 'matrix4'
+      Matrix5:
+        MATRIX_VAR: 'matrix5'
+      Matrix6:
+        MATRIX_VAR: 'matrix6'
   steps:
   - script: |
       whoami
@@ -48,7 +56,7 @@ jobs:
       docker volume ls
 
 - job: 'Container'
-  container: docker:stable
+  container: docker:dind
   steps:
   - script: |
       whoami
