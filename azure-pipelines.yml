@@ -33,20 +33,22 @@ jobs:
       lscpu
       df -h
       free
+    displayName: 'System Info'
   - script: |
       printenv
+    displayName: 'Environment variables'
   - script: |
       echo $TESTVAR1
       echo $TESTVAR2
       echo $MATRIX_VAR
       docker version
-  - script: |
       docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
       docker images
-      docker ps
+      docker ps -a
+      docker volume ls
 
 - job: 'Container'
-  container: ubuntu:16.04
+  container: docker:stable
   steps:
   - script: |
       whoami
@@ -54,8 +56,11 @@ jobs:
       lscpu
       df -h
       free
+    displayName: 'System Info'
   - script: |
       printenv
+    displayName: 'Environment variables'
   - script: |
       echo $TESTVAR1
       echo $TESTVAR2
+      docker version
