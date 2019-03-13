@@ -7,10 +7,10 @@ trigger:
   - vm
 
 variables:
-  - name: TESTVAR1
-    value: value1
-  - name: TESTVAR2
-    value: value2
+  - name: GLOBAL_VAR1
+    value: global1
+  - name: GLOBAL_VAR2
+    value: global2
 
 jobs:
 - job: 'Ubuntu_1604'
@@ -44,15 +44,15 @@ jobs:
       printenv
     displayName: 'Environment variables'
   - script: |
-      set -e
+      # set -e
       echo $TESTVAR1
       echo $TESTVAR2
       echo $MATRIX_VAR
+      VAR1=value1
       docker version
-      docker versions
-      #docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
-      docker images
-      docker ps -a
-      docker volume ls
+      # docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
+      # docker images
+      # docker ps -a
+      # docker volume ls
   - script: |
-      echo continuing
+      echo VAR1
