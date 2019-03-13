@@ -44,11 +44,15 @@ jobs:
       printenv
     displayName: 'Environment variables'
   - script: |
+      set -e
       echo $TESTVAR1
       echo $TESTVAR2
       echo $MATRIX_VAR
       docker version
-      docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
+      docker versions
+      #docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
       docker images
       docker ps -a
       docker volume ls
+  - script: |
+      echo continuing
