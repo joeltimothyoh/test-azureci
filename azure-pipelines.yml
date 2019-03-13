@@ -24,8 +24,10 @@ jobs:
     matrix:
       Matrix1:
         MATRIX_VAR: 'matrix1'
+        parallel: 2
       Matrix2:
         MATRIX_VAR: 'matrix2'
+        parallel: 2
       Matrix3:
         MATRIX_VAR: 'matrix3'
       Matrix4:
@@ -54,21 +56,3 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
-
-- job: 'Container'
-  container: docker:dind
-  steps:
-  - script: |
-      whoami
-      cat /etc/*release
-      lscpu
-      df -h
-      free
-    displayName: 'System Info'
-  - script: |
-      printenv
-    displayName: 'Environment variables'
-  - script: |
-      echo $TESTVAR1
-      echo $TESTVAR2
-      docker version
