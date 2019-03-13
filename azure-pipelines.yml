@@ -49,7 +49,9 @@ jobs:
       echo $GLOBAL_VAR2
       echo $MATRIX_VAR
       VAR1=value1
+      echo $VAR1
       EXPORTED_VAR1=exported1
+      export EXPORTED_VAR1
       docker version
       # docker run -t --rm ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
       # docker images
