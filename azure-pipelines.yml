@@ -14,7 +14,7 @@ variables:
 
 jobs:
 - job: 'Ubuntu_1604'
-  displayName: $(MATRIX_VAR)
+  displayName: 'Ubuntu 16.04'
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
@@ -67,7 +67,7 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
-    displayName: $(MATRIX_VAR)
+    displayName: matrix $(MATRIX_VAR)
   - script: |
       docker logout
     condition: always()
