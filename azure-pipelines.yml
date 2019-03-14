@@ -67,7 +67,7 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
-    displayName: matrix $(MATRIX_VAR)
+    displayName: "matrix: $(MATRIX_VAR)"
   - script: |
       docker logout
     condition: always()
