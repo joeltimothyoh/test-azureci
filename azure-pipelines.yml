@@ -61,7 +61,7 @@ jobs:
       docker ps -a
       docker volume ls
       # docker unknown command
-    displayName: '$(TRIGGER_VAR1), $(TRIGGER_VAR2)'
+    displayName: '$(BUILD_SOURCEBRANCHNAME), $(TRIGGER_VAR1), $(TRIGGER_VAR2)'
   - script: |
       echo $VAR1
       echo $EXPORTED_VAR1
