@@ -61,14 +61,14 @@ jobs:
       docker ps -a
       docker volume ls
       # docker unknown command
-    displayName: '$(MATRIX_VAR), $(GLOBAL_VAR1)'
+    displayName: '$(TRIGGER_VAR1), $(TRIGGER_VAR2)'
   - script: |
       echo $VAR1
       echo $EXPORTED_VAR1
       docker images
       docker ps -a
       docker volume ls
-    displayName: 'matrix: $(MATRIX_VAR)'
+    displayName: '$(MATRIX_VAR), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
   - script: |
       docker logout
     condition: always()
