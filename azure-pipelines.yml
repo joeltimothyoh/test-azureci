@@ -60,13 +60,14 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
-      docker unknown command
+      # docker unknown command
   - script: |
       echo $VAR1
       echo $EXPORTED_VAR1
       docker images
       docker ps -a
       docker volume ls
+    displayName: $(MATRIX_VAR)
   - script: |
       docker logout
     condition: always()
