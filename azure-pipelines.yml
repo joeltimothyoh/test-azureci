@@ -14,7 +14,7 @@ variables:
 
 jobs:
 - job: 'Ubuntu_1604'
-  displayName: '$(GLOBAL_VAR1)'
+  displayName: '$(GLOBAL_VAR1), $(SYSTEM_CULTURE), $(AGENT_ID), $(BUILD_BUILDID), $(BUILD_BUILDID), $(LEIN_HOME)'
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
