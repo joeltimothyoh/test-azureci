@@ -14,7 +14,7 @@ variables:
 
 jobs:
 - job: 'Ubuntu_1604'
-  displayName: 'Ubuntu 16.04'
+  displayName: $(MATRIX_VAR)
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
