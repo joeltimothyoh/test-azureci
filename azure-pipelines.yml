@@ -61,6 +61,7 @@ jobs:
       docker ps -a
       docker volume ls
       # docker unknown command
+    displayName: '$(BUILD_SOURCEBRANCHNAME): $(MATRIX_VAR)'
   - script: |
       echo $VAR1
       echo $EXPORTED_VAR1
