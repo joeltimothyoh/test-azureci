@@ -56,7 +56,7 @@ jobs:
       EXPORTED_VAR1=exported1
       export EXPORTED_VAR1
       echo "##vso[task.setvariable variable=JOBSCOPE_VAR1]jobscope1"
-      echo "##vso[task.setvariable variable=JOBSCOPE_VAR2]$VAR1"
+      echo "##vso[task.setvariable variable=JOBSCOPE_VAR2]${VAR1}"
       # docker run -t ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
       docker volume create volume1
       docker images
