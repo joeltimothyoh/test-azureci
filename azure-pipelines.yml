@@ -26,13 +26,13 @@ jobs:
     # parallel: 4
     matrix:
       Matrix1:
-        MATRIX_VAR: 'matrix1'
+        MATRIX_VAR1: 'matrix1'
       Matrix2:
-        MATRIX_VAR: 'matrix2'
+        MATRIX_VAR1: 'matrix2'
       # Matrix3:
-      #   MATRIX_VAR: 'matrix3'
+      #   MATRIX_VAR1: 'matrix3'
       # Matrix4:
-      #   MATRIX_VAR: 'matrix4'
+      #   MATRIX_VAR1: 'matrix4'
   steps:
   - script: |
       whoami
@@ -50,7 +50,7 @@ jobs:
       # set -e
       echo $GLOBAL_VAR1
       echo $GLOBAL_VAR2
-      echo $MATRIX_VAR
+      echo $MATRIX_VAR1
       VAR1=value1
       echo $VAR1
       EXPORTED_VAR1=exported1
@@ -68,7 +68,7 @@ jobs:
       docker images
       docker ps -a
       docker volume ls
-    displayName: '$(MATRIX_VAR), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
+    displayName: '$(MATRIX_VAR1), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
   - script: |
       docker logout
     condition: always()
