@@ -65,6 +65,8 @@ jobs:
       # docker ps -a
       # docker volume ls
       # docker unknown command
+
+      # this is for a random commit
     displayName: '$(Build.SourceBranchName), $(TRIGGER_VAR1), $(TRIGGER_VAR2)'
   - script: |
       echo $GLOBAL_VAR1
