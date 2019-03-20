@@ -12,50 +12,49 @@ jobs:
     vmImage: 'windows-2019'
   steps:
   - powershell: |
-      systeminfo
+      # systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
 
 - job: WindowsServer2016
   pool:
     vmImage: 'vs2017-win2016'
   steps:
   - powershell: |
-      systeminfo
+      # systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
 
 - job: WindowsServer2012R2
   pool:
     vmImage: 'vs2015-win2012r2'
   steps:
   - powershell: |
-      systeminfo
+      # systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
 
 - job: WindowsServer1803
   pool:
     vmImage: 'win1803'
   steps:
   - powershell: |
-      systeminfo
+      # systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
 
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
   - powershell: |
-      systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
   # - script: |
   #     whoami
   #     cat /etc/*release
@@ -84,7 +83,6 @@ jobs:
       df -h
       top -l 1 -s 0 | grep PhysMem
   - powershell: |
-      systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 60
+      Start-Sleep -Seconds 300
