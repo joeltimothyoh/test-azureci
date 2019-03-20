@@ -4,74 +4,87 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
 - debug
 
 jobs:
-# - job: WindowsServer2019
-#   pool:
-#     vmImage: 'windows-2019'
-#   steps:
-#   - powershell: |
-#       systeminfo
-#       Get-PSDrive
-#       $($PSVersionTable | Out-String).Trim()
+- job: WindowsServer2019
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
 
-# - job: WindowsServer2016
-#   pool:
-#     vmImage: 'vs2017-win2016'
-#   steps:
-#   - powershell: |
-#       systeminfo
-#       Get-PSDrive
-#       $($PSVersionTable | Out-String).Trim()
+- job: WindowsServer2016
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
 
-# - job: WindowsServer2012R2
-#   pool:
-#     vmImage: 'vs2015-win2012r2'
-#   steps:
-#   - powershell: |
-#       systeminfo
-#       Get-PSDrive
-#       $($PSVersionTable | Out-String).Trim()
+- job: WindowsServer2012R2
+  pool:
+    vmImage: 'vs2015-win2012r2'
+  steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
 
-# - job: WindowsServer1803
-#   pool:
-#     vmImage: 'win1803'
-#   steps:
-#   - powershell: |
-#       systeminfo
-#       Get-PSDrive
-#       $($PSVersionTable | Out-String).Trim()
+- job: WindowsServer1803
+  pool:
+    vmImage: 'win1803'
+  steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
 
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
+  # - script: |
+  #     whoami
+  #     cat /etc/*release
+  #     lscpu
+  #     df -h
+  #     free
+  # - script: |
+  #     TEST_SCRIPT=$( cat - <<'EOF'
+  #       set -e
+  #       printenv
+  #       echo; ls -al
+  #       echo; exec steamcmd.sh +login anonymous +quit
+  #     EOF
+  #     )
+  #     echo 'end of script definition
+  #     echo "${TEST_SCRIPT}"
+
+- job: macOS1013
+  pool:
+    vmImage: 'macOS-10.13'
+  steps:
   - script: |
       whoami
-      cat /etc/*release
+      system_profiler
       lscpu
       df -h
-      free
-  - script: |
-      TEST_SCRIPT=$( cat - <<'EOF'
-        set -e
-        printenv
-        echo; ls -al
-        echo; exec steamcmd.sh +login anonymous +quit
-      EOF
-      )
-      echo 'end of script definition
-      echo "${TEST_SCRIPT}"
-
-# - job: macOS1013
-#   pool:
-#     vmImage: 'macOS-10.13'
-#   steps:
-#   - script: |
-#       whoami
-#       system_profiler
-#       lscpu
-#       df -h
-#       top -l 1 -s 0 | grep PhysMem
+      top -l 1 -s 0 | grep PhysMem
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $($PSVersionTable | Out-String).Trim()
+      Start-Sleep -Seconds 60
