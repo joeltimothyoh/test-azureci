@@ -4,10 +4,36 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- parallelbuilds
 
 pool:
   vmImage: 'Ubuntu-16.04'
+
+variables:
+  GLOBAL_VAR1: global1
+
+strategy:
+  matrix:
+    Matrix1:
+      MATRIX_VAR1: 'matrix1_1'
+    Matrix2:
+      MATRIX_VAR1: 'matrix1_2'
+    Matrix3:
+      MATRIX_VAR1: 'matrix1_3'
+    Matrix4:
+      MATRIX_VAR1: 'matrix1_4'
+    Matrix5:
+      MATRIX_VAR1: 'matrix1_5'
+    Matrix6:
+      MATRIX_VAR1: 'matrix1_6'
+    Matrix7:
+      MATRIX_VAR1: 'matrix1_7'
+    Matrix8:
+      MATRIX_VAR1: 'matrix1_8'
+    Matrix9:
+      MATRIX_VAR1: 'matrix1_9'
+    Matrix10:
+      MATRIX_VAR1: 'matrix1_10'
 
 steps:
 - script: |
@@ -19,6 +45,7 @@ steps:
   displayName: 'System info'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    date
+    echo $GLOBAL_VAR1
+    echo $MATRIX_VAR1
+    sleep 300
