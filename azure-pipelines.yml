@@ -25,9 +25,9 @@ jobs:
     # maxParallel:: 2
     # parallel: 4
     matrix:
-      Matrix1:
+      Matrix 1:
         MATRIX_VAR1: 'matrix1_1'
-      Matrix2:
+      Matrix 2:
         MATRIX_VAR1: 'matrix1_2'
       # Matrix3:
       #   MATRIX_VAR1: 'matrix3'
