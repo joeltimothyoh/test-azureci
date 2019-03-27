@@ -3,15 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- systeminfo
-
 jobs:
 - job: WindowsServer2019
   pool:
     vmImage: 'windows-2019'
   steps:
   - powershell: |
+      whoami
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
@@ -21,6 +19,7 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - powershell: |
+      whoami
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
@@ -30,6 +29,7 @@ jobs:
     vmImage: 'vs2015-win2012r2'
   steps:
   - powershell: |
+      whoami
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
@@ -39,6 +39,7 @@ jobs:
     vmImage: 'win1803'
   steps:
   - powershell: |
+      whoami
       systeminfo
       Get-PSDrive
       $($PSVersionTable | Out-String).Trim()
