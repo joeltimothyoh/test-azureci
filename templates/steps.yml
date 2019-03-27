@@ -1,6 +1,5 @@
 # templates/steps.yml
 
 steps:
-- script: # And this step
+- script:
 - script: |
-    # and these
