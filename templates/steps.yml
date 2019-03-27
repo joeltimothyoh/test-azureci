@@ -3,7 +3,7 @@
 steps:
 - powershell: |
     $projectName = 'Get-SMARTReport'
-    git clone "https://github.com/joeltimothyoh/$projectName" 2>&1
+    git clone "https://github.com/joeltimothyoh/$projectName.git" 2>&1
     Push-Location $projectName
     Get-Location
     Import-Module "Modules/$projectName/Get-SMARTReport.psm1"
