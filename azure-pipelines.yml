@@ -9,9 +9,8 @@ jobs:
     vmImage: 'windows-2019'
   steps:
   - powershell: |
-      systeminfo
       Get-PSDrive
-      $PSVersionTable
+      $PSVersionTable | Out-String
   - pwsh: |
       $PSVersionTable
 
@@ -20,20 +19,8 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - powershell: |
-      systeminfo
       Get-PSDrive
-      $PSVersionTable
-  - pwsh: |
-      $PSVersionTable
-
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      systeminfo
-      Get-PSDrive
-      $PSVersionTable
+      $PSVersionTable | Out-String
   - pwsh: |
       $PSVersionTable
 
@@ -42,9 +29,18 @@ jobs:
     vmImage: 'win1803'
   steps:
   - powershell: |
-      systeminfo
       Get-PSDrive
+      $PSVersionTable | Out-String
+  - pwsh: |
       $PSVersionTable
+
+- job: WindowsServer2012R2
+  pool:
+    vmImage: 'vs2015-win2012r2'
+  steps:
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable | Out-String
   - pwsh: |
       $PSVersionTable
 
@@ -54,7 +50,7 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable
+      $PSVersionTable | Out-String
   - pwsh: |
       $PSVersionTable
 
@@ -64,6 +60,6 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable
+      $PSVersionTable | Out-String
   - pwsh: |
       $PSVersionTable
