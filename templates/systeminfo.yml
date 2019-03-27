@@ -1,0 +1,6 @@
+# templates/systeminfo.yml
+
+steps:
+- script: # And this step
+- script: |
+    # and these
