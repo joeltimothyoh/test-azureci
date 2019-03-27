@@ -12,7 +12,7 @@ jobs:
       whoami
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable | Out-String
 
 - job: WindowsServer2016
   pool:
@@ -22,7 +22,7 @@ jobs:
       whoami
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable | Out-String
 
 - job: WindowsServer2012R2
   pool:
@@ -32,7 +32,7 @@ jobs:
       whoami
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable | Out-String
 
 - job: WindowsServer1803
   pool:
@@ -42,7 +42,7 @@ jobs:
       whoami
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable | Out-String
 
 - job: Ubuntu1604
   pool:
