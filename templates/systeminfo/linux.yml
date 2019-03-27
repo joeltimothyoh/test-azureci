@@ -7,3 +7,4 @@ steps:
     lscpu
     df -h
     free
+  displayName: 'System Info'

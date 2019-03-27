@@ -6,3 +6,4 @@ steps:
     systeminfo
     Get-PSDrive
     $PSVersionTable | Out-String
+  displayName: 'System Info'

@@ -1,5 +1,4 @@
 # templates/steps.yml
 
 steps:
-- script:
-- script: |
+- powershell: |

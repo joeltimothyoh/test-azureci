@@ -38,7 +38,7 @@ jobs:
   - script: |
   - template: templates/systeminfo/linux.yml
   - template: templates/steps.yml
-  - script: |
+  - powershell: |
 
 - job: macOS1013
   pool:
@@ -46,4 +46,4 @@ jobs:
   steps:
   - template: templates/systeminfo/macos.yml
   - template: templates/steps.yml
-  - script: |
+  - powershell: |
