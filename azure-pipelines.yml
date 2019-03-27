@@ -3,68 +3,67 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-  - powershell
-
 jobs:
-- job: 'PowerShell_2'
-  continueOnError: false
+- job: WindowsServer2019
   pool:
-    vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
+    vmImage: 'windows-2019'
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable
   - pwsh: |
       $PSVersionTable
 
-- job: 'PowerShell_3'
-  continueOnError: false
+- job: WindowsServer2016
   pool:
-    vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
+    vmImage: 'vs2017-win2016'
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable
   - pwsh: |
       $PSVersionTable
 
-- job: 'PowerShell_4'
-  continueOnError: false
+- job: WindowsServer2012R2
   pool:
     vmImage: 'vs2015-win2012r2'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
   steps:
   - powershell: |
       systeminfo
       Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
+      $PSVersionTable
   - pwsh: |
       $PSVersionTable
 
-- job: 'PowerShell_Core'
-  continueOnError: false
+- job: WindowsServer1803
+  pool:
+    vmImage: 'win1803'
+  steps:
+  - powershell: |
+      systeminfo
+      Get-PSDrive
+      $PSVersionTable
+  - pwsh: |
+      $PSVersionTable
+
+- job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
   steps:
-  - script: |
-      whoami
-      cat /etc/*release
-      lscpu
-      df -h
-      free
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable
+  - pwsh: |
+      $PSVersionTable
+
+- job: macOS1013
+  pool:
+    vmImage: 'macOS-10.13'
+  steps:
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable
   - pwsh: |
       $PSVersionTable
