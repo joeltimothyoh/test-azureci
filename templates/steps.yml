@@ -22,5 +22,5 @@ steps:
     }
     # ./test.ps1
   errorActionPreference: continue
-  failOnStderr: false
+  # failOnStderr: false
   # ignoreLASTEXITCODE: true
