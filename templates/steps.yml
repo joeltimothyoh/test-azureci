@@ -17,4 +17,5 @@ steps:
     Get-SMARTReport
     # ./test.ps1
   errorActionPreference: stop
-  failOnStderr: false
+  # failOnStderr: false
+  ignoreLASTEXITCODE: true
