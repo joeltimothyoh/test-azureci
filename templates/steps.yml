@@ -6,18 +6,24 @@ steps:
 #     git status
 #     ls -al
 #     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+# - powershell: |
+#     Get-Location
+#     git status
+#     Get-ChildItem -Force | Format-Table
+#     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+#     Push-Location Get-SMARTReport
+#     Get-ChildItem -Force | Format-Table
+#     Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
+#     Get-SMARTReport
+#     'hi from joe'
+#     # ./test.ps1
 - powershell: |
+    $projectName = 'Get-SMARTReport'
+    git clone "https://github.com/joeltimothyoh/$($projectName).git"
+    Push-Location $projectName
     Get-Location
-    git status
-    Get-ChildItem -Force | Format-Table
-    Invoke-Expression "git clone https://github.com/joeltimothyoh/Get-SMARTReport.git" -ErrorAction SilentlyContinue
-    # git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
-    Push-Location Get-SMARTReport
-    Get-ChildItem -Force | Format-Table
-    Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
+    Import-Module "Modules/$($projectName)/Get-SMARTReport.psm1"
     Get-SMARTReport
-    'hi from joe'
-    # ./test.ps1
   errorActionPreference: continue
-  failOnStderr: false
-  ignoreLASTEXITCODE: true
+  # failOnStderr: false
+  # ignoreLASTEXITCODE: true
