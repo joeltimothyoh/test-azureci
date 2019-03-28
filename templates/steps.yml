@@ -7,14 +7,12 @@ steps:
 #     ls -al
 #     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
 - powershell: |
-    & {
-      Get-Location
-      git status
-      Get-ChildItem -Force
-      git clone https://github.com/joeltimothyoh/Get-SMARTReport.git 2>&1
-      Push-Location Get-SMARTReport
-      Get-ChildItem -Force
-      Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
-      Get-SMARTReport
-    } | Out-String | Write-Host
+    Get-Location
+    git status
+    Get-ChildItem -Force | Format-Table
+    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+    Push-Location Get-SMARTReport
+    Get-ChildItem -Force | Format-Table
+    Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
+    Get-SMARTReport
   errorActionPreference: continue
