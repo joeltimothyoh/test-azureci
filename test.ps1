@@ -1,7 +1,7 @@
 Get-Location
 git status
 Get-ChildItem -Force | Format-Table
-git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+git clone https://github.com/joeltimothyoh/Get-SMARTReport.git 2>&1
 Push-Location Get-SMARTReport
 Get-ChildItem -Force | Format-Table
 Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
