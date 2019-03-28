@@ -18,6 +18,6 @@ steps:
     Get-SMARTReport
     'hi from joe'
     # ./test.ps1
-  errorActionPreference: continue
+  errorActionPreference: stop
   failOnStderr: false
   # ignoreLASTEXITCODE: true
