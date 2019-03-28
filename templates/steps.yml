@@ -13,5 +13,5 @@ steps:
     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
     Push-Location Get-SMARTReport
     Get-ChildItem -Force | Out-String
-    Import-Module "Modules/Get-SMARTReport/Get-SMARTReport.psm1"
+    Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
     Get-SMARTReport
