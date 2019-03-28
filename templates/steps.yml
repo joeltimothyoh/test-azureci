@@ -6,7 +6,7 @@ steps:
 #     git status
 #     ls -al
 #     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
-- powershell: |
+- pwsh: |
     Get-Location
     git status
     Get-ChildItem -Force | Format-Table
