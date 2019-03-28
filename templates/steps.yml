@@ -8,9 +8,9 @@ steps:
     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
 
 - powershell: |
-    # git clone "https://github.com/joeltimothyoh/$projectName.git" 2>&1
     Get-Location
-    Push-Location $projectName
     git status
+    Get-ChildItem
+    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
     # Import-Module "Modules/$projectName/Get-SMARTReport.psm1"
     # Get-SMARTReport
