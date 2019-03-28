@@ -1,8 +1,13 @@
 # templates/steps.yml
 
 steps:
+- bash: |
+    pwd
+    git status
+    ls -al
+    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+
 - powershell: |
-    # $projectName = 'Get-SMARTReport'
     # git clone "https://github.com/joeltimothyoh/$projectName.git" 2>&1
     Get-Location
     Push-Location $projectName
