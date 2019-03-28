@@ -3,7 +3,7 @@ begin {
 }process {
     try {
         # Clone project
-        git clone "https://github.com/joeltimothyoh/$($projectName).git"; if ($?) { throw }
+        git clone "https://github.com/joeltimothyoh/$($projectName).git"; if ($LASTEXITCODE) { throw }
         Push-Location $projectName
         Get-ChildItem -Force | Format-Table
         # Test project
