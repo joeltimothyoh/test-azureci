@@ -7,19 +7,15 @@ steps:
 #     ls -al
 #     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
 - powershell: |
-    try {
-        Get-Location
-        git status
-        Get-ChildItem -Force | Format-Table
-        # Invoke-Expression "git clone https://github.com/joeltimothyoh/Get-SMARTReport.git" -ErrorAction SilentlyContinue
-        git clone https://github.com/joeltimothyoh/Get-SMARTReport.git 2>&6
-        Push-Location Get-SMARTReport
-        Get-ChildItem -Force | Format-Table
-        Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
-        Get-SMARTReport
-    }catch {
-        throw "Error! from joe"
-    }
+    Get-Location
+    git status
+    Get-ChildItem -Force | Format-Table
+    # Invoke-Expression "git clone https://github.com/joeltimothyoh/Get-SMARTReport.git" -ErrorAction SilentlyContinue
+    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+    Push-Location Get-SMARTReport
+    Get-ChildItem -Force | Format-Table
+    Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
+    Get-SMARTReport
     'hi from joe'
     # ./test.ps1
   errorActionPreference: continue
