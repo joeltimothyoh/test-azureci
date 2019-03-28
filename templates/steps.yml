@@ -24,7 +24,7 @@ steps:
     # Get-Location
     # Import-Module "./Modules/$($projectName)/Get-SMARTReport.psm1"
     # Get-SMARTReport
-    ./test.ps1
+    ./scripts/test.ps1
   errorActionPreference: continue
   # failOnStderr: false
   # ignoreLASTEXITCODE: true
