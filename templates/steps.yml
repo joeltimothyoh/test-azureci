@@ -19,5 +19,5 @@ steps:
     'hi from joe'
     # ./test.ps1
   errorActionPreference: continue
-  failOnStderr: true
+  failOnStderr: false
   # ignoreLASTEXITCODE: true
