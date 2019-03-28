@@ -20,6 +20,7 @@ steps:
     }catch {
         throw "Error! from joe"
     }
+    'hi from joe'
     # ./test.ps1
   errorActionPreference: continue
   # failOnStderr: false
