@@ -1,12 +1,11 @@
 # templates/steps.yml
 
 steps:
-- bash: |
-    pwd
-    git status
-    ls -al
-    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
-
+# - bash: |
+#     pwd
+#     git status
+#     ls -al
+#     git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
 - powershell: |
     Get-Location
     git status
