@@ -10,7 +10,7 @@ steps:
     Get-Location
     git status
     Get-ChildItem -Force | Format-Table
-    git clone https://github.com/joeltimothyoh/Get-SMARTReport.git
+    Invoke-Expression "git clone https://github.com/joeltimothyoh/Get-SMARTReport.git" -ErrorAction Continue
     Push-Location Get-SMARTReport
     Get-ChildItem -Force | Format-Table
     Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
