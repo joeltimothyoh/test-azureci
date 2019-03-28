@@ -1,8 +1,10 @@
-Get-Location
-git status
-Get-ChildItem -Force | Format-Table
-git clone https://github.com/joeltimothyoh/Get-SMARTReport.git 2>&1
-Push-Location Get-SMARTReport
-Get-ChildItem -Force | Format-Table
-Import-Module ./Modules/Get-SMARTReport/Get-SMARTReport.psm1
-Get-SMARTReport
+try {
+    $projectName = 'Get-SMARTReport'
+    git clone "https://github.com/joeltimothyoh/$($projectName).git"; if ($LASTEXITCODE) { throw }
+    Push-Location $projectName
+    Get-Location
+    Import-Module "./Modules/$($projectName)/Get-SMARTReport.psm1"
+    Get-SMARTReport
+}catch {
+    throw
+}
