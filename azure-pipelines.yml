@@ -52,8 +52,8 @@ jobs:
       whoami
       cat /etc/*release
       lscpu
-      df -h
       free
+      df -h
 
 - job: macOS1013
   pool:
