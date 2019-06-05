@@ -90,7 +90,7 @@ jobs:
   - script: |
       echo running conditional script..
     displayName: 'Conditional script'
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/build/')
   - script: |
       docker logout
     condition: always()
