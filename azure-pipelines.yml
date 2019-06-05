@@ -81,6 +81,10 @@ jobs:
       echo $JOBSCOPE_VAR2
     displayName: '$(MATRIX_VAR1), $(JOBSCOPE_VAR1), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
   - script: |
+      echo running conditional script..
+    displayName: 'Conditional script'
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+  - script: |
       docker logout
     condition: always()
 - job: 'Ubuntu_1604_B'
