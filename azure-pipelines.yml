@@ -53,6 +53,7 @@ jobs:
       echo $GLOBAL_VAR1
       echo $GLOBAL_VAR2
       echo $MATRIX_VAR1
+      echo $BUILD_SOURCEBRANCH
 
       VAR1=value1
       EXPORTED_VAR1=exported1
