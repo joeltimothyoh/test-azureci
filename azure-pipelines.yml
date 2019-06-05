@@ -85,7 +85,9 @@ jobs:
       echo $EXPORTED_VAR1
       echo $JOBSCOPE_VAR1
       echo $JOBSCOPE_VAR2
-      echo $COMMIT_TAG
+      if [ -n "$COMMIT_TAG" ]; then
+          echo "COMMIT_TAG:${COMMIT_TAG}"
+      fi
     displayName: '$(MATRIX_VAR1), $(JOBSCOPE_VAR1), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
   - script: |
       echo running conditional script..
