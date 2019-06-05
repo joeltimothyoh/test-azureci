@@ -57,6 +57,8 @@ jobs:
       echo $GLOBAL_VAR2
       echo $MATRIX_VAR1
       echo $BUILD_SOURCEBRANCH
+      COMMIT_TAG=$( echo $BUILD_SOURCEBRANCH | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
+      echo $COMMIT_TAG
 
       VAR1=value1
       EXPORTED_VAR1=exported1
