@@ -3,9 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-  - none      # none disables CI for pushes but not via UI / REST api
-
 jobs:
 - job: 'Ubuntu_1604'
   continueOnError: false
@@ -23,3 +20,5 @@ jobs:
       free
   - script: |
       printenv
+  - script: |
+      1
