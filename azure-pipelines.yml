@@ -21,4 +21,4 @@ jobs:
   - script: |
       printenv
   - script: |
-      1
+      echo 1
