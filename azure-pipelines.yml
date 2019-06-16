@@ -3,22 +3,24 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-jobs:
-- job: 'Ubuntu_1604'
-  continueOnError: false
-  pool:
-    vmImage: 'ubuntu-16.04'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
-  steps:
-  - script: |
-      whoami
-      cat /etc/*release
-      lscpu
-      df -h
-      free
-  - script: |
-      printenv
-  - script: |
-      echo 2
+stages:
+- stage: Build
+  jobs:
+  - job: 'Ubuntu_1604'
+    continueOnError: false
+    pool:
+      vmImage: 'ubuntu-16.04'
+    workspace:
+      clean: all
+    timeoutInMinutes: 5
+    steps:
+    - script: |
+        whoami
+        cat /etc/*release
+        lscpu
+        df -h
+        free
+    - script: |
+        printenv
+    - script: |
+        echo 2
