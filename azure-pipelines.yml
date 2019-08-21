@@ -55,7 +55,7 @@ jobs:
       echo $GLOBAL_VAR2
       echo $MATRIX_VAR1
       echo $BUILD_SOURCEBRANCH
-      BUILD_TAG=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/heads\//(.*)/\1/p' )
+      BUILD_TAG=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/heads\/(.*)/\1/p' )
       echo $BUILD_TAG
 
       VAR1=value1
