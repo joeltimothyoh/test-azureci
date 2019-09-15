@@ -20,6 +20,14 @@ stages:
     timeoutInMinutes: 5
     variables:
       JOB_VAR1: job1
+    strategy:
+      matrix:
+        Matrix1:
+          MATRIX_VAR: 'matrix1'
+        Matrix2:
+          MATRIX_VAR: 'matrix2'
+        Matrix3:
+          MATRIX_VAR: 'matrix3'
     steps:
     - script: |
         whoami
@@ -34,13 +42,18 @@ stages:
         echo $GLOBAL_VAR1
         echo $STAGE_VAR1
         echo $JOB_VAR1
-  - job: 'Ubuntu_1604_2'
+        echo $MATRIX_VAR
+  - job: 'Ubuntu_1604'
     continueOnError: false
     pool:
       vmImage: 'ubuntu-16.04'
     workspace:
       clean: all
     timeoutInMinutes: 5
+    variables:
+      JOB_VAR1: job1
+    strategy:
+      parallel: 2
     steps:
     - script: |
         whoami
@@ -55,6 +68,7 @@ stages:
         echo $GLOBAL_VAR1
         echo $STAGE_VAR1
         echo $JOB_VAR1
+        echo $MATRIX_VAR
 - stage: Test
   jobs:
   - job: 'Ubuntu_1604'
@@ -74,3 +88,4 @@ stages:
         echo $GLOBAL_VAR1
         echo $STAGE_VAR1
         echo $JOB_VAR1
+        echo $MATRIX_VAR
