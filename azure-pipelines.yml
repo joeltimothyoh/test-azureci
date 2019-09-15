@@ -34,7 +34,7 @@ stages:
     - script: |
         echo running tests..
         echo $var1
-- stage: Parallel stage
+- stage: Parallel
   dependsOn: []
   jobs:
   - job: 'Ubuntu_1604'
