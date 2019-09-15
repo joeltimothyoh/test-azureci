@@ -27,6 +27,25 @@ stages:
     - script: |
         echo 2
         echo $var1
+  - job: 'Ubuntu_1604_2'
+    continueOnError: false
+    pool:
+      vmImage: 'ubuntu-16.04'
+    workspace:
+      clean: all
+    timeoutInMinutes: 5
+    steps:
+    - script: |
+        whoami
+        cat /etc/*release
+        lscpu
+        df -h
+        free
+    - script: |
+        printenv
+    - script: |
+        echo 2
+        echo $var1
 - stage: Test
   jobs:
   - job: 'Ubuntu_1604'
