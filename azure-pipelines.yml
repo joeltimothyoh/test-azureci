@@ -13,6 +13,7 @@ jobs:
       systeminfo
       Get-PSDrive
       $PSVersionTable | Out-String
+      Get-Location
 
 - job: WindowsServer2016
   pool:
@@ -23,6 +24,7 @@ jobs:
       systeminfo
       Get-PSDrive
       $PSVersionTable | Out-String
+      Get-Location
 
 - job: WindowsServer2012R2
   pool:
@@ -33,6 +35,7 @@ jobs:
       systeminfo
       Get-PSDrive
       $PSVersionTable | Out-String
+      Get-Location
 
 - job: WindowsServer1803
   pool:
@@ -43,6 +46,7 @@ jobs:
       systeminfo
       Get-PSDrive
       $PSVersionTable | Out-String
+      Get-Location
 
 - job: Ubuntu1604
   pool:
@@ -54,6 +58,7 @@ jobs:
       lscpu
       free
       df -h
+      pwd
 
 - job: macOS1013
   pool:
@@ -64,3 +69,4 @@ jobs:
       system_profiler -detailLevel mini
       df -h
       top -l 1 -s 0 | grep PhysMem
+      pwd
