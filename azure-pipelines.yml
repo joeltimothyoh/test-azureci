@@ -30,7 +30,7 @@ stages:
     - script: |
         printenv
     - script: |
-        echo 2
+        echo running job..
         echo $GLOBAL_VAR1
         echo $STAGE_VAR1
         echo $JOB_VAR1
@@ -51,7 +51,7 @@ stages:
     - script: |
         printenv
     - script: |
-        echo 2
+        echo running job..
         echo $GLOBAL_VAR1
         echo $STAGE_VAR1
         echo $JOB_VAR1
