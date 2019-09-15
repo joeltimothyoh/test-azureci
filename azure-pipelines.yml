@@ -3,10 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  GLOBAL_VAR1: global1
+
 stages:
 - stage: Build
   variables:
-    var1: value1
+    STAGE_VAR1: stage1
   jobs:
   - job: 'Ubuntu_1604'
     continueOnError: false
@@ -15,6 +18,8 @@ stages:
     workspace:
       clean: all
     timeoutInMinutes: 5
+    variables:
+      JOB_VAR1: job1
     steps:
     - script: |
         whoami
@@ -26,7 +31,9 @@ stages:
         printenv
     - script: |
         echo 2
-        echo $var1
+        echo $GLOBAL_VAR1
+        echo $STAGE_VAR1
+        echo $JOB_VAR1
   - job: 'Ubuntu_1604_2'
     continueOnError: false
     pool:
@@ -45,14 +52,18 @@ stages:
         printenv
     - script: |
         echo 2
-        echo $var1
+        echo $GLOBAL_VAR1
+        echo $STAGE_VAR1
+        echo $JOB_VAR1
 - stage: Test
   jobs:
   - job: 'Ubuntu_1604'
     steps:
     - script: |
         echo running tests..
-        echo $var1
+        echo $GLOBAL_VAR1
+        echo $STAGE_VAR1
+        echo $JOB_VAR1
 - stage: Parallel
   dependsOn: []
   jobs:
@@ -60,3 +71,6 @@ stages:
     steps:
     - script: |
         echo running parallel tasks..
+        echo $GLOBAL_VAR1
+        echo $STAGE_VAR1
+        echo $JOB_VAR1
