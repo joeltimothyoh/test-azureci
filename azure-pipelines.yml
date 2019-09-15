@@ -11,7 +11,7 @@ stages:
   variables:
     STAGE_VAR1: stage1
   jobs:
-  - job: 'Ubuntu_1604'
+  - job: 'job1'
     continueOnError: false
     pool:
       vmImage: 'ubuntu-16.04'
@@ -43,7 +43,7 @@ stages:
         echo $STAGE_VAR1
         echo $JOB_VAR1
         echo $MATRIX_VAR
-  - job: 'Ubuntu_1604'
+  - job: 'job2'
     continueOnError: false
     pool:
       vmImage: 'ubuntu-16.04'
@@ -71,7 +71,7 @@ stages:
         echo $MATRIX_VAR
 - stage: Test
   jobs:
-  - job: 'Ubuntu_1604'
+  - job: 'job1'
     steps:
     - script: |
         echo running tests..
@@ -81,7 +81,7 @@ stages:
 - stage: Parallel
   dependsOn: []
   jobs:
-  - job: 'Ubuntu_1604'
+  - job: 'job1'
     steps:
     - script: |
         echo running parallel tasks..
