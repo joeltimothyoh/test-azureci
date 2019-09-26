@@ -59,6 +59,16 @@ jobs:
       free
       df -h
       pwd
+  - script: |
+      i=0; while true; do
+          echo "Iteration $(( $i+1 )): $(date)"
+          dd if=/dev/zero of="tempfile.$i" bs=1G count=1
+          ls -al "tempfile.$i"
+          df -h
+          i=$((i + 1))
+          echo
+          sleep 1
+      done
 
 - job: macOS1013
   pool:
@@ -70,6 +80,16 @@ jobs:
       df -h
       top -l 1 -s 0 | grep PhysMem
       pwd
+  - script: |
+      i=0; while true; do
+          echo "Iteration $(( $i+1 )): $(date)"
+          dd if=/dev/zero of="tempfile.$i" bs=1G count=1
+          ls -al "tempfile.$i"
+          df -h
+          i=$((i + 1))
+          echo
+          sleep 1
+      done
 
 - job: macOS1014
   pool:
@@ -81,3 +101,13 @@ jobs:
       df -h
       top -l 1 -s 0 | grep PhysMem
       pwd
+  - script: |
+      i=0; while true; do
+          echo "Iteration $(( $i+1 )): $(date)"
+          dd if=/dev/zero of="tempfile.$i" bs=1G count=1
+          ls -al "tempfile.$i"
+          df -h
+          i=$((i + 1))
+          echo
+          sleep 1
+      done
