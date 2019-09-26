@@ -70,3 +70,14 @@ jobs:
       df -h
       top -l 1 -s 0 | grep PhysMem
       pwd
+
+- job: macOS1014
+  pool:
+    vmImage: 'macOS-10.14'
+  steps:
+  - script: |
+      whoami
+      system_profiler -detailLevel mini
+      df -h
+      top -l 1 -s 0 | grep PhysMem
+      pwd
