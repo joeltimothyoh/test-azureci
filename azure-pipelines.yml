@@ -14,6 +14,15 @@ jobs:
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
+  - powershell: |
+      $i=0; while ($true) { 
+          "Iteration $($i+1)"
+          $tempfile = Join-Path $(Get-Location) "tempfile.$i"
+          [System.IO.File]::Create($tempfile).SetLength(1gb).Close
+          Get-Item $tempfile
+          Start-Sleep 1
+          $i++
+      }
 
 - job: WindowsServer2016
   pool:
@@ -25,6 +34,15 @@ jobs:
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
+  - powershell: |
+      $i=0; while ($true) { 
+          "Iteration $($i+1)"
+          $tempfile = Join-Path $(Get-Location) "tempfile.$i"
+          [System.IO.File]::Create($tempfile).SetLength(1gb).Close
+          Get-Item $tempfile
+          Start-Sleep 1
+          $i++
+      }
 
 - job: WindowsServer2012R2
   pool:
@@ -36,6 +54,15 @@ jobs:
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
+  - powershell: |
+      $i=0; while ($true) { 
+          "Iteration $($i+1)"
+          $tempfile = Join-Path $(Get-Location) "tempfile.$i"
+          [System.IO.File]::Create($tempfile).SetLength(1gb).Close
+          Get-Item $tempfile
+          Start-Sleep 1
+          $i++
+      }
 
 - job: WindowsServer1803
   pool:
@@ -47,6 +74,15 @@ jobs:
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
+  - powershell: |
+      $i=0; while ($true) { 
+          "Iteration $($i+1)"
+          $tempfile = Join-Path $(Get-Location) "tempfile.$i"
+          [System.IO.File]::Create($tempfile).SetLength(1gb).Close
+          Get-Item $tempfile
+          Start-Sleep 1
+          $i++
+      }
 
 - job: Ubuntu1604
   pool:
