@@ -83,7 +83,7 @@ jobs:
   - script: |
       i=0; while true; do
           echo "Iteration $(( $i+1 )): $(date)"
-          dd if=/dev/zero of="tempfile.$i" bs=1024 count=1024
+          mkfile 1024m "tempfile.$i"
           ls -al "tempfile.$i"
           df -h
           i=$((i + 1))
@@ -104,7 +104,7 @@ jobs:
   - script: |
       i=0; while true; do
           echo "Iteration $(( $i+1 )): $(date)"
-          dd if=/dev/zero of="tempfile.$i" bs=1024 count=1024
+          mkfile 1024m "tempfile.$i"
           ls -al "tempfile.$i"
           df -h
           i=$((i + 1))
