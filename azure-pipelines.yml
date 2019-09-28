@@ -4,21 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- sudo
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
 - script: |
-    whoami
-    cat /etc/*release
-    lscpu
-    df -h
-    free
-  displayName: 'System info'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    apt-get update
+    apt-get install htop
+  displayName: 'Sudo'
