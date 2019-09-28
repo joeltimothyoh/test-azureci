@@ -10,9 +10,11 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
   - pwsh: |
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
 
 - job: WindowsServer2016
   pool:
@@ -20,9 +22,11 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
   - pwsh: |
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
 
 - job: WindowsServer1803
   pool:
@@ -30,9 +34,11 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
   - pwsh: |
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
 
 - job: WindowsServer2012R2
   pool:
@@ -40,26 +46,23 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
 
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
   - pwsh: |
+      Get-PSDrive
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
 
 - job: macOS1013
   pool:
     vmImage: 'macOS-10.13'
   steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
   - pwsh: |
+      Get-PSDrive
       $PSVersionTable
+      Get-Module PowershellGet -Listavailable
