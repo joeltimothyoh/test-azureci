@@ -8,7 +8,7 @@ $ErrorActionPreference = 'Stop'
 $powershellGetRequiredVersion = '2.1.2'
 $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
 if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-    Install-Module -Name PowershellGet -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+    Install-Module -Name PowershellGet -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
 }
 # Import and get info on PowershellGet
 Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
