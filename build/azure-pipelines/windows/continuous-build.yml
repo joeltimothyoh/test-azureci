@@ -12,7 +12,7 @@ steps:
   displayName: Display Environment Variables
 - powershell: |
     $TAG_VERSION=(git describe --tags (git rev-list --tags --max-count=1))
-    $matchInfo = $env:TAG_VERSION | Select-String -Pattern '^v((?:\d+\.)+\d+)$'
+    $matchInfo = $TAG_VERSION | Select-String -Pattern '^v((?:\d+\.)+\d+)$'
     $MODULE_VERSION = if ($matchInfo) { $matchInfo.Matches.Groups[1].Value } else { $null }
     # Set job-scoped variables
     echo "##vso[task.setvariable variable=TAG_VERSION]${TAG_VERSION}"
