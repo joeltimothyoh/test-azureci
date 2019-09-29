@@ -22,7 +22,7 @@ jobs:
       $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
       $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
       if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
@@ -41,7 +41,7 @@ jobs:
       $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
       $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
       if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
@@ -60,7 +60,7 @@ jobs:
       $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
       $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
       if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
@@ -79,7 +79,7 @@ jobs:
       $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
       $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
       if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
@@ -100,7 +100,7 @@ jobs:
       $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
       $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
       if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
