@@ -14,17 +14,19 @@ jobs:
       Get-Module PowershellGet -Listavailable
       $psGetRequiredVersion = '2.2.1'
       $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-      if ($powershellGetVersion -notin $psGetInstalledVersions) {
-          Install-Module -Name PowershellGet -RequiredVersion $powershellGetVersion -Force -Verbose
+      if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
+          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
       }
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force
   - pwsh: |
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
       $psGetRequiredVersion = '2.2.1'
       $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-      if ($powershellGetVersion -notin $psGetInstalledVersions) {
-          Install-Module -Name PowershellGet -RequiredVersion $powershellGetVersion -Force -Verbose
+      if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
+          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
       }
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force
 - job: WindowsServer2016
   pool:
     vmImage: 'vs2017-win2016'
