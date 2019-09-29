@@ -46,12 +46,9 @@ jobs:
 - job: WindowsServer1803
   pool:
     vmImage: 'win1803'
-  container: mcr.microsoft.com/powershell:6.1.0-ubuntu-18.04
   steps:
-  # - powershell: |
-  #     Get-PSDrive
-  #     $PSVersionTable
-  #     Get-Module PowershellGet -Listavailable
+  - powershell: |
+      Get-ChildItem env:* | Format-Table -AutoSize
   - pwsh: |
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
