@@ -8,16 +8,16 @@ jobs:
   pool:
     vmImage: 'windows-2019'
   steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
-      $psGetRequiredVersion = '2.2.1'
-      $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-      if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
-          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-      }
-      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+#   - powershell: |
+#       Get-PSDrive
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
+#       $psGetRequiredVersion = '2.2.1'
+#       $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
+#       if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
+#           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+#       }
+#       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
   - pwsh: |
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
@@ -27,38 +27,38 @@ jobs:
           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
       }
       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-- job: WindowsServer2016
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
-  - pwsh: |
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
+# - job: WindowsServer2016
+#   pool:
+#     vmImage: 'vs2017-win2016'
+#   steps:
+#   - powershell: |
+#       Get-PSDrive
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
+#   - pwsh: |
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
 
-- job: WindowsServer1803
-  pool:
-    vmImage: 'win1803'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
-  - pwsh: |
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
+# - job: WindowsServer1803
+#   pool:
+#     vmImage: 'win1803'
+#   steps:
+#   - powershell: |
+#       Get-PSDrive
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
+#   - pwsh: |
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
 
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
+# - job: WindowsServer2012R2
+#   pool:
+#     vmImage: 'vs2015-win2012r2'
+#   steps:
+#   - powershell: |
+#       Get-PSDrive
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
 
 - job: Ubuntu1604
   pool:
@@ -68,6 +68,12 @@ jobs:
       Get-PSDrive
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
+      $psGetRequiredVersion = '2.2.1'
+      $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
+      if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
+          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+      }
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
 
 - job: macOS1013
   pool:
