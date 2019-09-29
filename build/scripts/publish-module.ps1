@@ -16,8 +16,5 @@ if (!$env:MODULE_VERSION) {
 "Version: $env:MODULE_VERSION"
 $manifest = Test-ModuleManifest -Path $Path
 
-# Display the module's properties
-Get-Module -Name $manifest.Name | Format-List -Property *
-
 # Publish the module
 "Publishing module: '$($manifest.Name)'" | Write-Host
