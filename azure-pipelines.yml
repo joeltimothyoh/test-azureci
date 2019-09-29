@@ -129,6 +129,8 @@ jobs:
   - bash: |
       printenv
   - pwsh: |
+      .\build\build.ps1
+  - pwsh: |
       Get-PSDrive
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
