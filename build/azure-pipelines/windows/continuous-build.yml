@@ -35,3 +35,4 @@ steps:
 - pwsh: |
     .\build\scripts\publish-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Verbose
   displayName: Publish the module
+  condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/') and ne(variables['MODULE_VERSION'], '')
