@@ -43,17 +43,27 @@ jobs:
 #       $PSVersionTable
 #       Get-Module PowershellGet -Listavailable
 
-# - job: WindowsServer1803
-#   pool:
-#     vmImage: 'win1803'
-#   steps:
-#   - powershell: |
-#       Get-PSDrive
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
-#   - pwsh: |
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
+- job: WindowsServer1803
+  pool:
+    vmImage: 'win1803'
+  container: mcr.microsoft.com/powershell:6.1.0-ubuntu-18.04
+  steps:
+  # - powershell: |
+  #     Get-PSDrive
+  #     $PSVersionTable
+  #     Get-Module PowershellGet -Listavailable
+  - pwsh: |
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
+      # Import the PowershellGet module of the specified version
+      $powershellGetRequiredVersion = '2.1.2'
+      $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
+      $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
+      if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+      }
+      Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
+      Get-Module -Name PowerShellGet -ListAvailable
 
 # - job: WindowsServer2012R2
 #   pool:
