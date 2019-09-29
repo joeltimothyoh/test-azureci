@@ -17,7 +17,7 @@ jobs:
       if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
       }
-      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
   - pwsh: |
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
@@ -26,7 +26,7 @@ jobs:
       if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
       }
-      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
 - job: WindowsServer2016
   pool:
     vmImage: 'vs2017-win2016'
