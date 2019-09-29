@@ -72,9 +72,11 @@ jobs:
       $psGetRequiredVersion = '2.2.1'
       $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
       if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
-          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Scope CurrentUser -Force -Verbose
+          Install-Module -Name PowershellGet -Repository PSGallery -RequiredVersion $psGetRequiredVersion -Scope CurrentUser -Force -Verbose
       }
+      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose -ErrorAction SilentlyContinue
       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+      Get-Module -Name PowerShellGet | select *
 
 # - job: macOS1013
 #   pool:
