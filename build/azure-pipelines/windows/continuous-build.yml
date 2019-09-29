@@ -19,6 +19,9 @@ steps:
     echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
   displayName: Process CI variables
 - pwsh: |
+    .\build\scripts\install-dependencies.ps1
+  displayName: Install Dependencies
+- pwsh: |
     .\build\scripts\build.ps1
   displayName: Build the module manifest
 - pwsh: |
