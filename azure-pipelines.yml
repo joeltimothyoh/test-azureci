@@ -71,7 +71,7 @@ jobs:
   steps:
   - powershell: |
       Get-ChildItem env:* | Format-Table -AutoSize
-  - powershell: : |
+  - powershell: |
       $PSVersionTable
       Get-Module PowershellGet -Listavailable
       # Import the PowershellGet module of the specified version
