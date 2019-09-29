@@ -63,7 +63,7 @@ jobs:
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
-  container: mcr.microsoft.com/powershell/6.1.0-ubuntu-18.04
+  container: mcr.microsoft.com/powershell:6.1.0-ubuntu-18.04
   steps:
   - pwsh: |
       Get-PSDrive
