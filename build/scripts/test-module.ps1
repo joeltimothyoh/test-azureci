@@ -13,6 +13,6 @@ $manifest = Test-ModuleManifest -Path $Path
 Import-Module -Name $Path -Force
 
 # Display the module's properties
-Get-Module -Name $moduleName | Format-List -Property * | Out-String -Stream | Write-Verbose
+Get-Module -Name $manifest.Name | Format-List -Property * | Out-String -Stream | Write-Verbose
 
 # Run tests
