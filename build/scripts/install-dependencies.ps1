@@ -4,6 +4,9 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+# Get info on PSGallery repository
+Get-PSRepository -Name 'PSGallery' | Format-List -Property *
+
 # Install PowershellGet module of the specified version
 $powershellGetRequiredVersion = '2.1.2'
 $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
