@@ -10,6 +10,7 @@ $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Vers
 if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
     Install-Module -Name PowershellGet -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
 }
+
 # Import and get info on PowershellGet
 Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
 Get-Module -Name PowerShellGet -ListAvailable
