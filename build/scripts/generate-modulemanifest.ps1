@@ -28,7 +28,7 @@ $moduleName = [System.IO.Path]::GetFileNameWithoutExtension($moduleManifestArgs[
 # Set the module manifest path
 $moduleManifestArgs['Path'] = "$modulesDir\$moduleName\$moduleName.psd1"
 # Set the module version based on the git tag if present, else default to 0.0.0 for mock / continuous builds
-$moduleManifestArgs['ModuleVersion'] = if ($env:MODULE_VERSION) { $matchInfo.Matches.Groups[1].Value } else { '0.0.0' }
+$moduleManifestArgs['ModuleVersion'] = if ($env:MODULE_VERSION) { $env:MODULE_VERSION } else { '0.0.0' }
 # Create the new manifest (overrides existing)
 New-ModuleManifest @moduleManifestArgs -Verbose
 # Run Update-ModuleManifest for standardizing the manifest and correctly populate the manifest's PrivateData properties
