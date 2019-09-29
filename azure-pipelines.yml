@@ -4,10 +4,10 @@
 # https://aka.ms/yaml
 
 jobs:
-- job: WindowsServer2019
-  pool:
-    vmImage: 'windows-2019'
-  steps:
+# - job: WindowsServer2019
+#   pool:
+#     vmImage: 'windows-2019'
+#   steps:
 #   - powershell: |
 #       Get-PSDrive
 #       $PSVersionTable
