@@ -2,9 +2,9 @@ trigger:
   branches:
     exclude:
       - '*'
-  tags: 
+  tags:
     include:
-      - 'v*.*'
+      - 'v*'
 pr: none
 
 jobs:
