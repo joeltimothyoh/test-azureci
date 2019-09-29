@@ -14,33 +14,7 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - powershell: |
-        hostname
-        whoami
-        systeminfo
-        Get-PSDrive
-        $PSVersionTable | Out-String
-        Get-Location
-    - powershell: |
-        Get-ChildItem env:* | Format-Table -AutoSize
-    - bash: |
-        MODULE_VERSION=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/tags\/v(.*)/\1/p' )
-        # Set job-scoped variables
-        echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
-    - pwsh: |
-        .\build\build.ps1
-  # - pwsh: |
-  #     $PSVersionTable
-  #     Get-Module PowershellGet -Listavailable
-  #     # Import the PowershellGet module of the specified version
-  #     $powershellGetRequiredVersion = '2.1.2'
-  #     $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
-  #     $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
-  #     if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-  #         Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
-  #     }
-  #     Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
-  #     Get-Module -Name PowerShellGet -ListAvailable
+    - template: build\azure-pipelines\windows\continuous-build.yml
 
 # - job: WindowsServer2016
 #   pool:
