@@ -1,3 +1,7 @@
 'Running build.ps1'
 
-"Version: $env:MODULE_VERSION"
+if ($env:MODULE_VERSION) {
+    "Version: '$env:MODULE_VERSION'"
+}else {
+    "Version is null."
+}
