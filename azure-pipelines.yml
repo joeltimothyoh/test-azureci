@@ -18,15 +18,15 @@ jobs:
 #           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
 #       }
 #       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-  - pwsh: |
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
-      $psGetRequiredVersion = '2.2.1'
-      $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-      if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
-          Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-      }
-      Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+  # - pwsh: |
+  #     $PSVersionTable
+  #     Get-Module PowershellGet -Listavailable
+  #     $psGetRequiredVersion = '2.2.1'
+  #     $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
+  #     if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
+  #         Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
+  #     }
+  #     Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
 # - job: WindowsServer2016
 #   pool:
 #     vmImage: 'vs2017-win2016'
@@ -63,6 +63,7 @@ jobs:
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
+  container: mcr.microsoft.com/powershell/6.1.0-ubuntu-18.04
   steps:
   - pwsh: |
       Get-PSDrive
@@ -75,11 +76,11 @@ jobs:
       }
       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
 
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - pwsh: |
-      Get-PSDrive
-      $PSVersionTable
-      Get-Module PowershellGet -Listavailable
+# - job: macOS1013
+#   pool:
+#     vmImage: 'macOS-10.13'
+#   steps:
+#   - pwsh: |
+#       Get-PSDrive
+#       $PSVersionTable
+#       Get-Module PowershellGet -Listavailable
