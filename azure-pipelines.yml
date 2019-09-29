@@ -8,40 +8,43 @@ trigger:
 pr: none
 
 jobs:
-# - job: WindowsServer2019
-#   pool:
-#     vmImage: 'windows-2019'
-#   steps:
-#   - powershell: |
-#       Get-PSDrive
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
-#       $psGetRequiredVersion = '2.2.1'
-#       $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-#       if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
-#           Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-#       }
-#       Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-  # - pwsh: |
-  #     $PSVersionTable
-  #     Get-Module PowershellGet -Listavailable
-  #     $psGetRequiredVersion = '2.2.1'
-  #     $psGetInstalledVersions = (Get-Module powershellget -ListAvailable).Version | % { $_.ToString() }
-  #     if ($psGetRequiredVersion -notin $psGetInstalledVersions) {
-  #         Install-Module -Name PowershellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-  #     }
-  #     Import-Module -Name PowerShellGet -RequiredVersion $psGetRequiredVersion -Force -Verbose
-# - job: WindowsServer2016
-#   pool:
-#     vmImage: 'vs2017-win2016'
-#   steps:
-#   - powershell: |
-#       Get-PSDrive
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
-#   - pwsh: |
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
+- job: WindowsServer2019
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+  - powershell: |
+      Get-ChildItem env:* | Format-Table -AutoSize
+  - pwsh: |
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
+      # Import the PowershellGet module of the specified version
+      $powershellGetRequiredVersion = '2.1.2'
+      $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
+      $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
+      if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+      }
+      Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
+      Get-Module -Name PowerShellGet -ListAvailable
+
+- job: WindowsServer2016
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - powershell: |
+      Get-ChildItem env:* | Format-Table -AutoSize
+  - pwsh: |
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
+      # Import the PowershellGet module of the specified version
+      $powershellGetRequiredVersion = '2.1.2'
+      $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
+      $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
+      if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+      }
+      Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
+      Get-Module -Name PowerShellGet -ListAvailable
 
 - job: WindowsServer1803
   pool:
@@ -62,14 +65,24 @@ jobs:
       Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
       Get-Module -Name PowerShellGet -ListAvailable
 
-# - job: WindowsServer2012R2
-#   pool:
-#     vmImage: 'vs2015-win2012r2'
-#   steps:
-#   - powershell: |
-#       Get-PSDrive
-#       $PSVersionTable
-#       Get-Module PowershellGet -Listavailable
+- job: WindowsServer2012R2
+  pool:
+    vmImage: 'vs2015-win2012r2'
+  steps:
+  - powershell: |
+      Get-ChildItem env:* | Format-Table -AutoSize
+  - powershell: : |
+      $PSVersionTable
+      Get-Module PowershellGet -Listavailable
+      # Import the PowershellGet module of the specified version
+      $powershellGetRequiredVersion = '2.1.2'
+      $PSRepository = if ($env:PSRepository) { $env:PSRepository } else { 'PSGallery' }
+      $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
+      if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+          Install-Module -Name PowershellGet -Repository $PSRepository -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose -AllowClobber
+      }
+      Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
+      Get-Module -Name PowerShellGet -ListAvailable
 
 - job: Ubuntu1604
   pool:
