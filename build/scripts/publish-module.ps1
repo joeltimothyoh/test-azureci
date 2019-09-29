@@ -18,3 +18,4 @@ $manifest = Test-ModuleManifest -Path $Path
 
 # Publish the module
 "Publishing module: '$($manifest.Name)'" | Write-Host
+Publish-Module -Path (Split-Path -Path $Path -Parent) -NuGetApiKey $env:NUGET_API_KEY
