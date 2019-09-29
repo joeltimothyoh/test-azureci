@@ -24,7 +24,7 @@ stages:
     - powershell: |
         Get-ChildItem env:* | Format-Table -AutoSize
     - bash: |
-        MODULE_VERSION=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
+        MODULE_VERSION=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/tags\/v(.*)/\1/p' )
         # Set job-scoped variables
         echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
     - pwsh: |
