@@ -1,4 +1,4 @@
 steps:
 - bash: |
-    .\build\scripts\system\display-systeminfo-linux.sh
+    ./build/scripts/system/display-systeminfo-linux.sh
   displayName: Display System Info
