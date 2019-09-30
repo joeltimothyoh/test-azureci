@@ -9,7 +9,7 @@ pr: none
 
 stages:
 - stage: Build_Test
-  displayName: Build & Test
+  displayName: Build, Test
   jobs:
   - job: Windows
     pool:
