@@ -14,24 +14,27 @@ steps:
     echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
   displayName: Process CI variables
 - pwsh: |
-    .\build\scripts\install-dependencies.ps1 -Verbose
-  displayName: Install Dependencies
-- pwsh: |
-    $manifest = .\build\scripts\generate-modulemanifest.ps1 -Verbose
-    $moduleManifestPath = $manifest.Fullname
-    # Set job-scoped variables
-    echo "##vso[task.setvariable variable=MODULE_MANIFEST_PATH]${moduleManifestPath}"
-  displayName: Generate the module manifest
-  condition:
-- pwsh: |
-    .\build\scripts\test-modulemanifest.ps1 -Path $env:MODULE_MANIFEST_PATH -Verbose
-  displayName: Test the module manifest
-- pwsh: |
-    .\build\scripts\test-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Verbose
-  displayName: Test the module
-- pwsh: |
-    .\build\scripts\publish-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Repository 'PSGallery' -Verbose
-  displayName: Publish the module
+    .\build\build.ps1 -PublishRepository 'PSGallery' -Verbose
+  displayName: Build, Test, Publish Module
+# - pwsh: |
+#     .\build\scripts\install-dependencies.ps1 -Verbose
+#   displayName: Install Dependencies
+# - pwsh: |
+#     $manifest = .\build\scripts\generate-modulemanifest.ps1 -Verbose
+#     $moduleManifestPath = $manifest.Fullname
+#     # Set job-scoped variables
+#     echo "##vso[task.setvariable variable=MODULE_MANIFEST_PATH]${moduleManifestPath}"
+#   displayName: Generate the module manifest
+#   condition:
+# - pwsh: |
+#     .\build\scripts\test-modulemanifest.ps1 -Path $env:MODULE_MANIFEST_PATH -Verbose
+#   displayName: Test the module manifest
+# - pwsh: |
+#     .\build\scripts\test-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Verbose
+#   displayName: Test the module
+# - pwsh: |
+#     .\build\scripts\publish-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Repository 'PSGallery' -Verbose
+#   displayName: Publish the module
   condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), ne(variables['MODULE_VERSION'], ''))
   env:
     NUGET_API_KEY: $(NUGET_API_KEY)
