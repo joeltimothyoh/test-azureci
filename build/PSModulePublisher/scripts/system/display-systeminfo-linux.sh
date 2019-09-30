@@ -6,3 +6,4 @@ cat /etc/*release
 lscpu
 free
 df -h
+pwd
