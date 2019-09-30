@@ -14,8 +14,11 @@ steps:
     echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
   displayName: Process CI variables
 - pwsh: |
-    .\build\build.ps1 -PublishRepository 'PSGallery' -Verbose
-  displayName: Build, Test, Publish Module
+    .\build\build.ps1 -Verbose
+  displayName: Build, Test Module
+- pwsh: |
+    .\build\publish.ps1 -PublishRepository 'PSGallery' -Verbose
+  displayName: Publish Module
 # - pwsh: |
 #     .\build\scripts\install-dependencies.ps1 -Verbose
 #   displayName: Install Dependencies
@@ -35,6 +38,6 @@ steps:
 # - pwsh: |
 #     .\build\scripts\publish-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Repository 'PSGallery' -Verbose
 #   displayName: Publish the module
-  # condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), ne(variables['MODULE_VERSION'], ''))
+  condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), ne(variables['MODULE_VERSION'], ''))
   env:
     NUGET_API_KEY: $(NUGET_API_KEY)
