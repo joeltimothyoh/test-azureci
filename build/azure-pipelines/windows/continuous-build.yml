@@ -1,14 +1,6 @@
 steps:
-- powershell: |
-    .\build\scripts\system\display-systeminfo.ps1
-  displayName: Display System Info
-- pwsh: |
-    $matchInfo = $env:BUILD_SOURCEBRANCH | Select-String -Pattern '^refs\/tags\/v((?:\d+\.)+\d+)$'
-    $MODULE_VERSION = if ($matchInfo) { $matchInfo.Matches.Groups[1].Value } else { $null }
-    "MODULE_VERSION: '$MODULE_VERSION'" | Write-Host
-    # Set job-scoped variables
-    echo "##vso[task.setvariable variable=MODULE_VERSION]${MODULE_VERSION}"
-  displayName: Process CI variables
+- template: build\azure-pipelines\windows\display-systeminfo.yml
+- template: build\azure-pipelines\common\process-civariables.yml
 - pwsh: |
     .\build\scripts\build.ps1 -Verbose
   displayName: Build, Test Module
