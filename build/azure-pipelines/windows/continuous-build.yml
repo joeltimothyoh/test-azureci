@@ -35,6 +35,6 @@ steps:
 # - pwsh: |
 #     .\build\scripts\publish-module.ps1 -Path $env:MODULE_MANIFEST_PATH -Repository 'PSGallery' -Verbose
 #   displayName: Publish the module
-  condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), ne(variables['MODULE_VERSION'], ''))
+  # condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), ne(variables['MODULE_VERSION'], ''))
   env:
     NUGET_API_KEY: $(NUGET_API_KEY)
