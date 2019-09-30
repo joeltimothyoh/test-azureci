@@ -1,4 +1,4 @@
 steps:
 - pwsh: |
-    .\build\scripts\build.ps1 -Verbose
+    .\build\PSModulePublisher\scripts\build.ps1 -Verbose
   displayName: Build, Test Module
