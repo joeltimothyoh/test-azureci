@@ -13,11 +13,11 @@ $ErrorActionPreference = 'Stop'
 # $VerbosePreference = 'Continue'
 
 # Script constants
-$script:scriptsDir = Join-Path $PSScriptRoot 'scripts'
+$script:scriptsModuleDir = Join-Path $PSScriptRoot 'module'
 
 $script:scriptBlock = {
     "Publish the module" | Write-Host
-    & "$script:scriptsDir\publish-module.ps1" -Path $moduleManifestPath -Repository $PublishRepository | Out-Host
+    & "$script:scriptsModuleDir\publish-module.ps1" -Path $moduleManifestPath -Repository $PublishRepository | Out-Host
 }
 
 try {

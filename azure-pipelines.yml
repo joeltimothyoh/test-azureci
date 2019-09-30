@@ -109,7 +109,7 @@ stages:
 #   - bash: |
 #       printenv
 #   - pwsh: |
-#       .\build\build.ps1
+#       .\build\scripts\build.ps1
 #   - pwsh: |
 #       Get-PSDrive
 #       $PSVersionTable
