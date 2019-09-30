@@ -10,6 +10,7 @@ $script:MODULE['PRIVATE_DIR'] = Join-Path $script:MODULE['BASE_DIR'] 'Private'  
 
 # Load vendor, Public, Private, classes, helpers
 Get-ChildItem "$( $script:MODULE['PUBLIC_DIR'] )/*.ps1"  | % { . $_.FullName }
+Get-ChildItem "$( $script:MODULE['PRIVATE_DIR'] )/*.ps1" | % { . $_.FullName }
 
 # Export Public functions
 Export-ModuleMember -Function @( Get-ChildItem "$( $script:MODULE['PUBLIC_DIR'] )/*.ps1" | Select-Object -ExpandProperty BaseName )

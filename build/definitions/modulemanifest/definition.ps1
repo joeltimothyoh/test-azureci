@@ -38,6 +38,7 @@
             Tags = @(
                 'mock'
                 'module'
+                'template'
                 'psgallery'
             )
             LicenseUri = 'https://github.com/joeltimothyoh/PSMockModule/blob/master/LICENSE'
