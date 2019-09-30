@@ -10,6 +10,7 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+# $VerbosePreference = 'Continue'
 
 # Script constants
 $script:scriptsDir = Join-Path $PSScriptRoot 'scripts'
