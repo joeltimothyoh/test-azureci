@@ -1,11 +1,6 @@
 steps:
 - powershell: |
-    hostname
-    whoami
-    systeminfo
-    Get-PSDrive
-    $PSVersionTable | Out-String
-    Get-Location
+    .\build\display-systeminfo.ps1
   displayName: Display System Info
 - powershell: |
     $matchInfo = $env:BUILD_SOURCEBRANCH | Select-String -Pattern '^refs\/tags\/v((?:\d+\.)+\d+)$'
