@@ -1,6 +1,6 @@
 steps:
-- template: build\azure-pipelines\windows\display-systeminfo.yml
-- template: build\azure-pipelines\common\process-civariables.yml
+- template: display-systeminfo.yml
+- template: ..\common\process-civariables.yml
 - pwsh: |
     .\build\scripts\build.ps1 -Verbose
   displayName: Build, Test Module
