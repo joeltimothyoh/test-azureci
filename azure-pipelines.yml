@@ -17,3 +17,11 @@ stages:
     - checkout: self
       submodules: true | recursive
     - template: build/azure-pipelines/windows/continuous-build.yml
+  - job: Ubuntu1604
+    pool:
+      vmImage: 'ubuntu-16.04'
+    container: mcr.microsoft.com/powershell:6.1.0-ubuntu-18.04
+    steps:
+    - checkout: self
+      submodules: true | recursive
+    - template: build/azure-pipelines/linux/continuous-build.yml

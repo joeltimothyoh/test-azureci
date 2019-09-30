@@ -1,0 +1,4 @@
+steps:
+- bash: |
+    .\build\scripts\system\display-systeminfo-linux.ps1
+  displayName: Display System Info
