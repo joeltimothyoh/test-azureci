@@ -15,7 +15,7 @@ $ErrorActionPreference = 'Stop'
 "Path: $Path" | Write-Verbose
 Get-Item -Path $Path > $null
 
-if (Test-Path -Path $Path -Leaf) {
+if (Test-Path -Path $Path -PathType Leaf) {
     $modulesDir = Split-Path -Path $Path -Parent
     "Module directory determined to be '$modulesDir'" | Write-Verbose
 }
