@@ -28,7 +28,7 @@ stages:
     - template: build/azure-pipelines/linux/continuous-build.yml
 - stage: Publish
   dependsOn:
-  - Build
+  - Build_Test
   jobs:
   - job: Windows
     pool:
