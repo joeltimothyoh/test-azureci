@@ -11,4 +11,4 @@ $ErrorActionPreference = 'Stop'
 # Test the module manifest
 $manifest = Test-ModuleManifest -Path $Path
 # Display the manifest
-$manifest | Format-List -Property * | Out-String -Stream | Write-Verbose
+$manifest | Format-List -Property * | Out-String | Write-Verbose
