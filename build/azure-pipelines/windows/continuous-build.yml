@@ -18,9 +18,9 @@ steps:
   displayName: Install Dependencies
 - pwsh: |
     $manifest = .\build\scripts\generate-modulemanifest.ps1 -Verbose
-    $MODULE_MANIFEST_PATH = $manifest.Fullname
+    $moduleManifestPath = $manifest.Fullname
     # Set job-scoped variables
-    echo "##vso[task.setvariable variable=MODULE_MANIFEST_PATH]${MODULE_MANIFEST_PATH}"
+    echo "##vso[task.setvariable variable=MODULE_MANIFEST_PATH]${moduleManifestPath}"
   displayName: Generate the module manifest
   condition:
 - pwsh: |
