@@ -10,14 +10,14 @@ pr: none
 stages:
 - stage: Build
   jobs:
-  - job: WindowsServer2019
+  - job: Windows
     pool:
       vmImage: 'windows-2019'
     steps:
     - checkout: self
       submodules: true | recursive
     - template: build/azure-pipelines/windows/continuous-build.yml
-  - job: Ubuntu1604
+  - job: Linux
     pool:
       vmImage: 'ubuntu-16.04'
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
@@ -25,3 +25,15 @@ stages:
     - checkout: self
       submodules: true | recursive
     - template: build/azure-pipelines/linux/continuous-build.yml
+- stage: Publish
+  jobs:
+  - job: Windows
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+    - checkout: self
+      submodules: true | recursive
+    - template: build/azure-pipelines/windows/continuous-build.yml
+    - template: build/azure-pipelines/common/publish-module.yml
+    dependsOn:
+    - Build
