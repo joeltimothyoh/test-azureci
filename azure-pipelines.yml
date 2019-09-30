@@ -26,6 +26,8 @@ stages:
       submodules: true | recursive
     - template: build/azure-pipelines/linux/continuous-build.yml
 - stage: Publish
+  dependsOn:
+  - Build
   jobs:
   - job: Windows
     pool:
@@ -35,5 +37,3 @@ stages:
       submodules: true | recursive
     - template: build/azure-pipelines/windows/continuous-build.yml
     - template: build/azure-pipelines/common/publish-module.yml
-    dependsOn:
-    - Build
