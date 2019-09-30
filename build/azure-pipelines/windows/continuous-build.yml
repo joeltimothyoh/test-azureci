@@ -1,6 +1,6 @@
 steps:
 - template: display-systeminfo.yml
-- template: ..\common\process-civariables.yml
+- template: ../common/process-civariables.yml
 - pwsh: |
     .\build\scripts\build.ps1 -Verbose
   displayName: Build, Test Module

@@ -16,7 +16,7 @@ stages:
     steps:
     - checkout: self
       submodules: true | recursive
-    - template: build\azure-pipelines\windows\continuous-build.yml
+    - template: build/azure-pipelines/windows/continuous-build.yml
 
 # - job: WindowsServer2016
 #   pool:
