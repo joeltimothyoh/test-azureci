@@ -11,9 +11,9 @@ Get-PSRepository -Name 'PSGallery' | Format-List -Property *
 $powershellGetRequiredVersion = '2.1.2'
 $powershellGetInstalledVersions = (Get-Module PowerShellGet -ListAvailable).Version | % { $_.ToString() }
 if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-    Install-Module -Name PowershellGet -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Verbose
+    Install-Module -Name PowershellGet -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
 }
 
 # Import and get info on PowershellGet
-Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force -Verbose
+Import-Module -Name PowerShellGet -RequiredVersion $powershellGetRequiredVersion -Force
 Get-Module -Name PowerShellGet -ListAvailable

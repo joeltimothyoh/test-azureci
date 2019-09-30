@@ -16,20 +16,20 @@ $script:scriptsDir = Join-Path $PSScriptRoot 'scripts'
 
 $script:scriptBlock = {
     "Install Dependencies" | Write-Host
-    & "$script:scriptsDir\install-dependencies.ps1" -Verbose | Out-Host
+    & "$script:scriptsDir\install-dependencies.ps1" | Out-Host
 
     "Generate the module manifest" | Write-Host
-    $manifest = & "$script:scriptsDir\generate-modulemanifest.ps1" -Verbose
+    $manifest = & "$script:scriptsDir\generate-modulemanifest.ps1"
     $moduleManifestPath = $manifest.Fullname
 
     "Test the module manifest" | Write-Host
-    & "$script:scriptsDir\test-modulemanifest.ps1" -Path $moduleManifestPath -Verbose | Out-Host
+    & "$script:scriptsDir\test-modulemanifest.ps1" -Path $moduleManifestPath | Out-Host
 
     "Test the module" | Write-Host
-    & "$script:scriptsDir\test-module.ps1" -Path $moduleManifestPath -Verbose | Out-Host
+    & "$script:scriptsDir\test-module.ps1" -Path $moduleManifestPath | Out-Host
 
     "Publish the module" | Write-Host
-    & "$script:scriptsDir\publish-module.ps1" -Path $moduleManifestPath -Repository $PublishRepository -Verbose | Out-Host
+    & "$script:scriptsDir\publish-module.ps1" -Path $moduleManifestPath -Repository $PublishRepository | Out-Host
 }
 
 try {

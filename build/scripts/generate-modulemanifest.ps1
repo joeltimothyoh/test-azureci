@@ -30,13 +30,13 @@ $moduleManifestArgs['Path'] = "$modulesDir\$moduleName\$moduleName.psd1"
 # Set the module version based on the git tag if present, else default to 0.0.0 for mock / continuous builds
 $moduleManifestArgs['ModuleVersion'] = if ($env:MODULE_VERSION) { $env:MODULE_VERSION } else { '0.0.0' }
 # Create the new manifest (overrides existing)
-New-ModuleManifest @moduleManifestArgs -Verbose
+New-ModuleManifest @moduleManifestArgs
 # Run Update-ModuleManifest for standardizing the manifest and correctly populate the manifest's PrivateData properties
 $updateModuleManifestArgs = @{
     Path = $moduleManifestArgs['Path']
     PrivateData = $moduleManifestArgs['PrivateData']
 }
-Update-ModuleManifest @updateModuleManifestArgs -Verbose
+Update-ModuleManifest @updateModuleManifestArgs
 
 # Display the generated manifest's content
 Get-Content -Path $moduleManifestArgs['Path'] | Write-Verbose
