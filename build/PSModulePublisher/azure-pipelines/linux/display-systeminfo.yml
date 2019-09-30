@@ -1,4 +1,4 @@
 steps:
 - bash: |
-    ./build/scripts/system/display-systeminfo-linux.sh
+    ../../scripts/system/display-systeminfo-windows.ps1
   displayName: Display System Info
