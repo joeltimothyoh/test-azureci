@@ -11,7 +11,12 @@ if ($env:MODULE_VERSION) {
 }
 
 # Script constants
-$projectDir = Convert-Path (git rev-parse --show-toplevel)
+$superProjectDirRaw = git rev-parse --show-superproject-working-tree
+if ($superProjectDirRaw) {
+    $projectDir = Convert-Path -Path $superProjectDirRaw
+}else {
+    $projectDir = Convert-Path -Path (git rev-parse --show-toplevel)
+}
 $modulesDir = Join-Path $projectDir 'Modules'
 $buildDir = Join-Path $projectDir 'build'
 $definitionsDir = Join-Path $buildDir 'definitions'
