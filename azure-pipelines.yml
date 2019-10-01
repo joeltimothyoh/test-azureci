@@ -29,7 +29,7 @@ stages:
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: vs2017win2016
     pool:
-      vmImage: 'vs2017win2016'
+      vmImage: 'vs2017-win2016'
     steps:
     - checkout: self
       submodules: true
