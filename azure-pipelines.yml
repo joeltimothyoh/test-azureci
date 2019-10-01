@@ -7,6 +7,12 @@ trigger:
       - '*'
 pr: none
 
+resources:
+  repositories:
+    - repository: PSModulePublisher
+      type: github
+      name: theohbrothers/PSModulePublisher
+
 stages:
 - stage: Build_Test
   displayName: Build, Test
@@ -18,7 +24,7 @@ stages:
     - checkout: self
       submodules: true
     - pwsh: Get-ChildItem -Recurse
-    - template: build/PSModulePublisher/azure-pipelines/windows/continuous-build.yml
+    - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
 #   - job: Linux
 #     pool:
 #       vmImage: 'ubuntu-16.04'
