@@ -10,3 +10,7 @@ if ( ! $pester -or $pester.Version.Major -lt 4 ) {
     Install-Module Pester -Force -Scope CurrentUser
 }
 Get-Module Pester -ListAvailable
+
+# Run the exported functions
+Mock-Function1 -Verbose
+Mock-Function2 -Verbose
