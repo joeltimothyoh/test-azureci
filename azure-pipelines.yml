@@ -12,6 +12,7 @@ resources:
     - repository: PSModulePublisher
       type: github
       name: theohbrothers/PSModulePublisher
+      endpoint: joeltimothyoh
 
 stages:
 - stage: Build_Test
