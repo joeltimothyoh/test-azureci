@@ -24,6 +24,7 @@ if ($superProjectDirRaw) {
 }
 $testsDir = Join-Path $projectDir 'tests'
 
-"Test directory: $testsDir" | Write-Host
-"Running tests" | Write-Host
-# & "$testsDir\test.ps1"
+if (Test-Path -Path "$testsDir\test.ps1" -PathType Leaf) {
+    "Running tests" | Write-Host
+    & "$testsDir\test.ps1"
+}
