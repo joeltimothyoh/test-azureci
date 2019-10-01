@@ -51,20 +51,20 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
-  - job: macOS1014
-    pool:
-      vmImage: 'macOS-10.14'
-    steps:
-    - checkout: self
-      submodules: true
-    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
-  - job: macOS1013
-    pool:
-      vmImage: 'macOS-10.13'
-    steps:
-    - checkout: self
-      submodules: true
-    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+  # - job: macOS1014
+  #   pool:
+  #     vmImage: 'macOS-10.14'
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+  # - job: macOS1013
+  #   pool:
+  #     vmImage: 'macOS-10.13'
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
 - stage: Publish
   dependsOn:
   - Build_Test
