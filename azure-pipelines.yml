@@ -32,8 +32,8 @@ stages:
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
     steps:
     - checkout: self
-      submodules: true | recursive
-    - template: build/PSModulePublisher/azure-pipelines/linux/continuous-build.yml
+      submodules: true
+    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
 - stage: Publish
   dependsOn:
   - Build_Test
@@ -43,6 +43,6 @@ stages:
       vmImage: 'windows-2019'
     steps:
     - checkout: self
-      submodules: true | recursive
-    - template: build/PSModulePublisher/azure-pipelines/windows/continuous-build.yml
-    - template: build/PSModulePublisher/azure-pipelines/common/publish-module.yml
+      submodules: true
+    - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+    - template: azure-pipelines/common/publish-module.yml@PSModulePublisher
