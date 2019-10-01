@@ -27,10 +27,40 @@ stages:
       submodules: true
     - pwsh: Get-ChildItem -Recurse
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+  - job: Windows2
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+    - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+  - job: Windows3
+    pool:
+      vmImage: 'win1803'
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+    - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: Linux
     pool:
       vmImage: 'ubuntu-16.04'
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+  - job: MacOS
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+  - job: MacOS2
+    pool:
+      vmImage: 'macOS-10.13'
     steps:
     - checkout: self
       submodules: true
