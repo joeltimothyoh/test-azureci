@@ -16,28 +16,28 @@ resources:
       ref: refs/heads/dev
 
 stages:
-# - stage: Build_Test
-#   displayName: Build, Test
-#   jobs:
-#   - job: Windows
-#     pool:
-#       vmImage: 'windows-2019'
-#     steps:
-#     - checkout: self
-#       submodules: true
-#     - pwsh: Get-ChildItem -Recurse
-#     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
-#   - job: Linux
-#     pool:
-#       vmImage: 'ubuntu-16.04'
-#     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-#     steps:
-#     - checkout: self
-#       submodules: true
-#     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+- stage: Build_Test
+  displayName: Build, Test
+  jobs:
+  - job: Windows
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+    - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+  - job: Linux
+    pool:
+      vmImage: 'ubuntu-16.04'
+    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
 - stage: Publish
-  # dependsOn:
-  # - Build_Test
+  dependsOn:
+  - Build_Test
   jobs:
   - job: Windows
     pool:
