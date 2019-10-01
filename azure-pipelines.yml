@@ -16,7 +16,7 @@ stages:
       vmImage: 'windows-2019'
     steps:
     - checkout: self
-      submodules: true | recursive
+      submodules: true
     - pwsh: Get-ChildItem -Recurse
     # - template: build/PSModulePublisher/azure-pipelines/windows/continuous-build.yml
 #   - job: Linux
