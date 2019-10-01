@@ -17,7 +17,7 @@ stages:
     steps:
     - checkout: self
       submodules: true | recursive
-    - pwsh: Get-ChildItem
+    - pwsh: Get-ChildItem -Recurse
     # - template: build/PSModulePublisher/azure-pipelines/windows/continuous-build.yml
 #   - job: Linux
 #     pool:
