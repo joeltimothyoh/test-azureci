@@ -19,7 +19,7 @@ stages:
 - stage: Build_Test
   displayName: Build, Test
   jobs:
-  - job: Windows
+  - job: windows2019
     pool:
       vmImage: 'windows-2019'
     steps:
@@ -27,15 +27,15 @@ stages:
       submodules: true
     - pwsh: Get-ChildItem -Recurse
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
-  - job: Windows2
+  - job: vs2017win2016
     pool:
-      vmImage: 'windows-2019'
+      vmImage: 'vs2017win2016'
     steps:
     - checkout: self
       submodules: true
     - pwsh: Get-ChildItem -Recurse
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
-  - job: Windows3
+  - job: win1803
     pool:
       vmImage: 'win1803'
     steps:
@@ -43,7 +43,7 @@ stages:
       submodules: true
     - pwsh: Get-ChildItem -Recurse
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
-  - job: Linux
+  - job: ubuntu1604
     pool:
       vmImage: 'ubuntu-16.04'
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
@@ -51,14 +51,14 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
-  - job: MacOS
+  - job: macOS1014
     pool:
       vmImage: 'macOS-10.14'
     steps:
     - checkout: self
       submodules: true
     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
-  - job: MacOS2
+  - job: macOS1013
     pool:
       vmImage: 'macOS-10.13'
     steps:
