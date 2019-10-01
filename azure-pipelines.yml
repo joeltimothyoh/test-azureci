@@ -9,6 +9,7 @@ jobs:
     vmImage: 'windows-2019'
   steps:
   - powershell: |
+      hostname
       whoami
       systeminfo
       Get-PSDrive
@@ -20,6 +21,7 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - powershell: |
+      hostname
       whoami
       systeminfo
       Get-PSDrive
@@ -31,6 +33,7 @@ jobs:
     vmImage: 'vs2015-win2012r2'
   steps:
   - powershell: |
+      hostname
       whoami
       systeminfo
       Get-PSDrive
@@ -42,6 +45,7 @@ jobs:
     vmImage: 'win1803'
   steps:
   - powershell: |
+      hostname
       whoami
       systeminfo
       Get-PSDrive
@@ -53,6 +57,7 @@ jobs:
     vmImage: 'ubuntu-16.04'
   steps:
   - script: |
+      hostname
       whoami
       cat /etc/*release
       lscpu
@@ -65,10 +70,11 @@ jobs:
     vmImage: 'macOS-10.13'
   steps:
   - script: |
+      hostname
       whoami
       system_profiler -detailLevel mini
-      df -h
       top -l 1 -s 0 | grep PhysMem
+      df -h
       pwd
 
 - job: macOS1014
@@ -76,8 +82,9 @@ jobs:
     vmImage: 'macOS-10.14'
   steps:
   - script: |
+      hostname
       whoami
       system_profiler -detailLevel mini
-      df -h
       top -l 1 -s 0 | grep PhysMem
+      df -h
       pwd
