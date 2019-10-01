@@ -24,8 +24,8 @@
     # FormatsToProcess = @()
     # NestedModules = @()
     FunctionsToExport = @(
-        'Mock-Module'
-        'Public-Function1'
+        'Mock-Function1'
+        'Mock-Function2'
     )
     CmdletsToExport = @()
     VariablesToExport = @()
