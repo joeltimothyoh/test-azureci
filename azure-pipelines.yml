@@ -36,8 +36,8 @@ stages:
 #       submodules: true
 #     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
 - stage: Publish
-  dependsOn:
-  - Build_Test
+  # dependsOn:
+  # - Build_Test
   jobs:
   - job: Windows
     pool:
