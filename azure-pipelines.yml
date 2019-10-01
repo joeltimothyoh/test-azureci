@@ -22,7 +22,7 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - checkout: self
+    - checkout: none
       submodules: true | recursive
     - pwsh: Get-ChildItem -Recurse
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
@@ -31,7 +31,7 @@ stages:
       vmImage: 'ubuntu-16.04'
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
     steps:
-    - checkout: self
+    - checkout: none
       submodules: true | recursive
     - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
 - stage: Publish
@@ -42,7 +42,7 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - checkout: self
+    - checkout: none
       submodules: true | recursive
     - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
     - template: azure-pipelines/common/publish-module.yml@PSModulePublisher
