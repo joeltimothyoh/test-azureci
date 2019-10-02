@@ -3,7 +3,9 @@ param()
 
 Set-StrictMode -Version Latest
 $global:PesterDebugPreference_ShowFullErrors = $true
+$ErrorActionPreference = 'Stop'
 
+"Installing dependencies" | Write-Host
 # Install Pester if needed
 $pester = Get-Module Pester -ListAvailable -ErrorAction SilentlyContinue
 if ( ! $pester -or $pester.Version.Major -lt 4 ) {
@@ -11,6 +13,12 @@ if ( ! $pester -or $pester.Version.Major -lt 4 ) {
 }
 Get-Module Pester -ListAvailable
 
-# Run the exported functions
-Mock-Function1 -Verbose
-Mock-Function2 -Verbose
+# Begin tests
+"`nBegin tests" | Write-Host
+try {
+    Mock-Function1 -Verbose
+    Mock-Function2 -Verbose
+
+}catch {
+    throw
+}
