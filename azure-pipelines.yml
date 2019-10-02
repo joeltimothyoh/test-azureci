@@ -13,7 +13,7 @@ resources:
       type: github
       name: theohbrothers/PSModulePublisher
       endpoint: joeltimothyoh
-      ref: refs/heads/dev
+      ref: refs/heads/debug
 
 stages:
 # - stage: Build_Test
