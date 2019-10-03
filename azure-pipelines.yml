@@ -8,8 +8,9 @@ trigger:
     include:
     # - tags
     - build/*
-    tags: 
-    - '*'
+  tags:
+    include:
+      - '*'
 
 variables:
   - name: GLOBAL_VAR1
