@@ -6,8 +6,10 @@
 trigger:
   branches:
     include:
-      - tags
-      - build/*
+    # - tags
+    - build/*
+    tags: 
+    - '*'
 
 variables:
   - name: GLOBAL_VAR1
