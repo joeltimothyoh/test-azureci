@@ -150,6 +150,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - bash: |
+        sudo touch /usr/local/bin/hi
         sudo apt-get update
         sudo apt-get install htop
     - pwsh: |
