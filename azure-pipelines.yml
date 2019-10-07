@@ -188,6 +188,7 @@ stages:
     - pwsh: |
         $VerbosePreference = 'Continue'
         New-Item /usr/local/share/hi -ItemType File
+        Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
@@ -220,5 +221,6 @@ stages:
     - pwsh: |
         $VerbosePreference = 'Continue'
         New-Item /usr/local/share/hi -ItemType File
+        Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
