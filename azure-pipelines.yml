@@ -155,7 +155,7 @@ stages:
         sudo apt-get install htop
     - pwsh: |
         $VerbosePreference = 'Continue'
-        New-Item /usr/local/bin/hi -ItemType File
+        New-Item /usr/local/bin/hi -ItemType File -Force
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
