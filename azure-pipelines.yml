@@ -150,7 +150,9 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - bash: |
-        sudo touch /usr/local/bin/hi
+        set -eux
+        cat /etc/passwd
+        sudo touch /usr/local/
         sudo apt-get update
         sudo apt-get install htop
     - pwsh: |
@@ -186,6 +188,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - bash: |
+        set -eux
         sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
@@ -221,6 +224,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - bash: |
+        set -eux
         sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
