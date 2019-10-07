@@ -41,6 +41,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
+        $VerbosePreference = 'Continue'
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
@@ -77,6 +78,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
+        $VerbosePreference = 'Continue'
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
@@ -113,6 +115,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
+        $VerbosePreference = 'Continue'
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
@@ -147,7 +150,8 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
-        New-Item /hi -ItemType File
+        $VerbosePreference = 'Continue'
+        New-Item /usr/local/bin/hi -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
@@ -178,7 +182,8 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
-        New-Item /hi -ItemType File
+        $VerbosePreference = 'Continue'
+        New-Item /usr/local/share/hi -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
@@ -209,6 +214,7 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
     - pwsh: |
-        New-Item /hi -ItemType File
+        $VerbosePreference = 'Continue'
+        New-Item /usr/local/share/hi -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
