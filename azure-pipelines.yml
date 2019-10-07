@@ -45,7 +45,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
 
   - job: vs2017win2016
     pool:
@@ -82,7 +82,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
 
   - job: win1803
     pool:
@@ -119,7 +119,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
 
   - job: ubuntu1604
     pool:
@@ -160,7 +160,7 @@ stages:
         $VerbosePreference = 'Continue'
         # New-Item /usr/local/bin/hi -ItemType File -Force
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
 
   - job: macOS1014
     pool:
@@ -196,7 +196,7 @@ stages:
         # New-Item /usr/local/hi -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
 
   - job: macOS1013
     pool:
@@ -232,4 +232,4 @@ stages:
         # New-Item /usr/local/hi -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
-      displayName: Run debug tests
+      displayName: Run powershell tests
