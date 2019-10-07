@@ -13,6 +13,8 @@ stages:
   - job: windows2019
     pool:
       vmImage: windows-2019
+    workspace:
+      clean: all
     steps:
     - checkout: self
       submodules: true
@@ -39,6 +41,8 @@ stages:
   - job: vs2017win2016
     pool:
       vmImage: vs2017-win2016
+    workspace:
+      clean: all
     steps:
     - checkout: self
       submodules: true
@@ -65,6 +69,8 @@ stages:
   - job: win1803
     pool:
       vmImage: win1803
+    workspace:
+      clean: all
     steps:
     - checkout: self
       submodules: true
@@ -91,6 +97,8 @@ stages:
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
+    workspace:
+      clean: all
     container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
     steps:
     - checkout: self
@@ -111,6 +119,8 @@ stages:
   - job: macOS1014
     pool:
       vmImage: macOS-10.14
+    workspace:
+      clean: all
     steps:
     - checkout: self
       submodules: true
@@ -129,6 +139,8 @@ stages:
   - job: macOS1013
     pool:
       vmImage: macOS-10.13
+    workspace:
+      clean: all
     steps:
     - checkout: self
       submodules: true
