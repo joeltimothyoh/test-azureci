@@ -185,9 +185,11 @@ stages:
         Get-PSRepository | Select *
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
+    - bash: |
+        sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
-        New-Item /usr/local/hi -ItemType File
+        # New-Item /usr/local/hi -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
@@ -218,9 +220,11 @@ stages:
         Get-PSRepository | Select *
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
+    - bash: |
+        sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
-        New-Item /usr/local/hi -ItemType File
+        # New-Item /usr/local/hi -ItemType File
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
