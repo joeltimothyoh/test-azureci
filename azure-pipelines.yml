@@ -32,11 +32,17 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
       displayName: Check for elevation
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
       displayName: Run debug tests
 
   - job: vs2017win2016
@@ -61,11 +67,17 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
       displayName: Check for elevation
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
       displayName: Run debug tests
 
   - job: win1803
@@ -90,11 +102,17 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
       displayName: Check for elevation
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
       displayName: Run debug tests
 
   - job: ubuntu1604
@@ -117,8 +135,18 @@ stages:
         df -h
         pwd
       displayName: Display system info
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
+      displayName: Run debug tests
 
   - job: macOS1014
     pool:
@@ -138,8 +166,18 @@ stages:
         df -h
         pwd
       displayName: Display system info
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
+      displayName: Run debug tests
 
   - job: macOS1013
     pool:
@@ -159,5 +197,15 @@ stages:
         df -h
         pwd
       displayName: Display system info
-    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
-      displayName: Check dependencies versions
+    - pwsh: |
+        $VerbosePreference = 'Continue'
+        $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
+        "PSModulePath:"
+        $env:PSModulePath -split ';'
+        Get-PSRepository | Select *
+        Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check build dependencies
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Force
+      displayName: Run debug tests
