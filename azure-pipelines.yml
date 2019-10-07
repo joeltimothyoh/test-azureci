@@ -141,6 +141,14 @@ stages:
         df -h
         pwd
       displayName: Display system info
+    - bash: |
+        set -eux
+        cat /etc/passwd
+        cat /etc/group
+        sudo touch /usr/local/
+        sudo apt-get update
+        sudo apt-get install htop
+      displayName: Check for elevation
     - pwsh: |
         $VerbosePreference = 'Continue'
         $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
@@ -149,13 +157,6 @@ stages:
         Get-PSRepository | Select *
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
-    - bash: |
-        set -eux
-        cat /etc/passwd
-        cat /etc/group
-        sudo touch /usr/local/
-        sudo apt-get update
-        sudo apt-get install htop
     - pwsh: |
         $VerbosePreference = 'Continue'
         # New-Item /usr/local/bin/hi -ItemType File -Force
@@ -180,6 +181,10 @@ stages:
         df -h
         pwd
       displayName: Display system info
+    - bash: |
+        set -eux
+        sudo touch /usr/local/hi
+      displayName: Check for elevation
     - pwsh: |
         $VerbosePreference = 'Continue'
         $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
@@ -188,9 +193,6 @@ stages:
         Get-PSRepository | Select *
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
-    - bash: |
-        set -eux
-        sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
         # New-Item /usr/local/hi -ItemType File
@@ -216,6 +218,10 @@ stages:
         df -h
         pwd
       displayName: Display system info
+    - bash: |
+        set -eux
+        sudo touch /usr/local/hi
+      displayName: Check for elevation
     - pwsh: |
         $VerbosePreference = 'Continue'
         $PSVersionTable | ConvertTo-Json | ConvertFrom-Json
@@ -224,9 +230,6 @@ stages:
         Get-PSRepository | Select *
         Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check build dependencies
-    - bash: |
-        set -eux
-        sudo touch /usr/local/hi
     - pwsh: |
         $VerbosePreference = 'Continue'
         # New-Item /usr/local/hi -ItemType File
