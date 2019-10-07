@@ -38,6 +38,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
+
   - job: vs2017win2016
     pool:
       vmImage: vs2017-win2016
@@ -66,6 +67,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
+
   - job: win1803
     pool:
       vmImage: win1803
@@ -94,6 +96,7 @@ stages:
         New-Item "C:\program files\hi" -ItemType File
         Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
+
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
@@ -116,6 +119,7 @@ stages:
       displayName: Display system info
     - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check dependencies versions
+
   - job: macOS1014
     pool:
       vmImage: macOS-10.14
@@ -136,6 +140,7 @@ stages:
       displayName: Display system info
     - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
       displayName: Check dependencies versions
+
   - job: macOS1013
     pool:
       vmImage: macOS-10.13
