@@ -1,19 +1,19 @@
 trigger:
   branches:
     include:
-      - '*'
+    - '*'
   tags:
     include:
-      - '*'
+    - '*'
 pr: none
 
 resources:
   repositories:
-    - repository: PSModulePublisher
-      type: github
-      name: theohbrothers/PSModulePublisher
-      endpoint: joeltimothyoh
-      ref: refs/heads/dev
+  - repository: PSModulePublisher
+    type: github
+    name: theohbrothers/PSModulePublisher
+    endpoint: joeltimothyoh
+    ref: refs/heads/dev
 
 stages:
 - stage: Build_Test
