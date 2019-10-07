@@ -6,83 +6,113 @@
 trigger:
 - debug
 
-jobs:
-- job: WindowsServer2019
-  pool:
-    vmImage: 'windows-2019'
-  steps:
-  - powershell: |
-      # systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
-
-- job: WindowsServer2016
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - powershell: |
-      # systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
-
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      # systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
-
-- job: WindowsServer1803
-  pool:
-    vmImage: 'win1803'
-  steps:
-  - powershell: |
-      # systeminfo
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
-
-- job: Ubuntu1604
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
-  # - script: |
-  #     whoami
-  #     cat /etc/*release
-  #     lscpu
-  #     df -h
-  #     free
-  # - script: |
-  #     TEST_SCRIPT=$( cat - <<'EOF'
-  #       set -e
-  #       printenv
-  #       echo; ls -al
-  #       echo; exec steamcmd.sh +login anonymous +quit
-  #     EOF
-  #     )
-  #     echo 'end of script definition
-  #     echo "${TEST_SCRIPT}"
-
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - script: |
-      whoami
-      system_profiler
-      lscpu
-      df -h
-      top -l 1 -s 0 | grep PhysMem
-  - powershell: |
-      Get-PSDrive
-      $($PSVersionTable | Out-String).Trim()
-      Start-Sleep -Seconds 300
+stages:
+- stage: Build_Test
+  displayName: Build, Test
+  jobs:
+  - job: windows2019
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: |
+        hostname
+        whoami
+        systeminfo
+        Get-PSDrive
+        $PSVersionTable | Out-String
+        Get-Location
+      displayName: Display system info
+    - pwsh: |
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+      displayName: Check for elevation
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+      displayName: Run debug tests
+  - job: vs2017win2016
+    pool:
+      vmImage: vs2017-win2016
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: |
+        hostname
+        whoami
+        systeminfo
+        Get-PSDrive
+        $PSVersionTable | Out-String
+        Get-Location
+      displayName: Display system info
+    - pwsh: |
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+      displayName: Check for elevation
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+      displayName: Run debug tests
+  - job: win1803
+    pool:
+      vmImage: win1803
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: |
+        hostname
+        whoami
+        systeminfo
+        Get-PSDrive
+        $PSVersionTable | Out-String
+        Get-Location
+      displayName: Display system info
+    - pwsh: |
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+      displayName: Check for elevation
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
+    - pwsh: |
+        New-Item "C:\program files\hi" -ItemType File
+      displayName: Run debug tests
+  - job: ubuntu1604
+    pool:
+      vmImage: ubuntu-16.04
+    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
+  - job: macOS1014
+    pool:
+      vmImage: macOS-10.14
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
+  - job: macOS1013
+    pool:
+      vmImage: macOS-10.13
+    steps:
+    - checkout: self
+      submodules: true
+    - pwsh: Get-ChildItem -Recurse
+      displayName: Display repository contents
+    - pwsh: Get-Module PowerShellGet -ListAvailable | Select *
+      displayName: Check dependencies versions
