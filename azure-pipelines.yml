@@ -34,6 +34,7 @@ stages:
       displayName: Check dependencies versions
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
   - job: vs2017win2016
     pool:
@@ -59,6 +60,7 @@ stages:
       displayName: Check dependencies versions
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
   - job: win1803
     pool:
@@ -84,6 +86,7 @@ stages:
       displayName: Check dependencies versions
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers
       displayName: Run debug tests
   - job: ubuntu1604
     pool:
