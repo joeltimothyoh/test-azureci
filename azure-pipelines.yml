@@ -42,7 +42,7 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
   - job: vs2017win2016
@@ -77,7 +77,7 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
   - job: win1803
@@ -112,7 +112,7 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item "C:\program files\hi" -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
   - job: ubuntu1604
@@ -145,7 +145,7 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item /hi -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
   - job: macOS1014
@@ -176,7 +176,7 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item /hi -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
 
   - job: macOS1013
@@ -207,5 +207,5 @@ stages:
       displayName: Check build dependencies
     - pwsh: |
         New-Item /hi -ItemType File
-        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers-Confirm:$false
+        Install-Module -Name MyPublishingDebugger -Repository PSGallery -Scope AllUsers -Confirm:$false
       displayName: Run debug tests
