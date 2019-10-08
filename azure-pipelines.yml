@@ -26,14 +26,14 @@ stages:
     pool:
       vmImage: ubuntu-16.04
     steps:
-    - script: |
+    - bash: |
+        hostname
         whoami
         cat /etc/*release
         lscpu
-        df -h
         free
-        docker info
-        docker version
+        df -h
+        pwd
     - task: GitHubRelease@0
       inputs:
         gitHubConnection: release
@@ -54,3 +54,10 @@ stages:
         addChangeLog: true # Optional
         # compareWith: 'lastFullRelease' # Required when addChangeLog == True. Options: lastFullRelease, lastRelease, lastReleaseByTag
         # releaseTag: # Required when compareWith == LastReleaseByTag
+        changeLogCompareToRelease: 'lastFullRelease'
+        changeLogType: 'issueBased'
+        changeLogLabels: |
+          [
+          { "label" : "bug", "displayName" : "Bugs", "state" : "closed" },
+          { "label" : "debug", "displayName" : "Debug", "state" : "closed" }
+          ]
