@@ -18,90 +18,39 @@ variables:
   - name: GLOBAL_VAR2
     value: global2
 
-jobs:
-- job: 'Ubuntu_1604'
-  displayName: '$(Agent.Id), $(Build.DefinitionName), $(Build.BuildId)'
-  continueOnError: false
-  pool:
-    vmImage: 'ubuntu-16.04'
-  workspace:
-    clean: all
-  timeoutInMinutes: 5
-  strategy:
-    # maxParallel:: 2
-    # parallel: 4
-    matrix:
-      Matrix 1:
-        MATRIX_VAR1: 'matrix1_1'
-      Matrix 2:
-        MATRIX_VAR1: 'matrix1_2'
-      # Matrix3:
-      #   MATRIX_VAR1: 'matrix3'
-      # Matrix4:
-      #   MATRIX_VAR1: 'matrix4'
-  steps:
-  - script: |
-      whoami
-      cat /etc/*release
-      lscpu
-      df -h
-      free
-      docker info
-      docker version
-    displayName: 'System Info'
-  - script: |
-      printenv
-    displayName: 'Environment variables'
-  - script: |
-      # set -e
-      echo $GLOBAL_VAR1
-      echo $GLOBAL_VAR2
-      echo $MATRIX_VAR1
-      echo $BUILD_SOURCEBRANCH
-      BUILD_TAG=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/heads\/(.*)/\1/p' )
-      echo $BUILD_TAG
-
-      VAR1=value1
-      EXPORTED_VAR1=exported1
-      export EXPORTED_VAR1
-
-      echo "##vso[task.setvariable variable=JOBSCOPE_VAR1]jobscope1"
-      echo "##vso[task.setvariable variable=JOBSCOPE_VAR2]${VAR1}"
-      echo "##vso[task.setvariable variable=BUILD_TAG]${BUILD_TAG}"
-
-      # docker run -t ubuntu:16.04 bash -c 'whoami; cat /etc/*release; lscpu; df -h; free; printenv'
-      # docker volume create volume1
-      # docker images
-      # docker ps -a
-      # docker volume ls
-      # docker unknown command
-
-      # this is for a random commit
-    displayName: '$(Build.SourceBranchName), $(TRIGGER_VAR1), $(TRIGGER_VAR2)'
-  - script: |
-      echo $GLOBAL_VAR1
-      echo $GLOBAL_VAR2
-      echo $MATRIX_VAR1
-      echo $VAR1
-      echo $EXPORTED_VAR1
-      echo $JOBSCOPE_VAR1
-      echo $JOBSCOPE_VAR2
-      if [ -n "$BUILD_TAG" ]; then
-          echo "BUILD_TAG:${BUILD_TAG}"
-      fi
-    displayName: '$(MATRIX_VAR1), $(JOBSCOPE_VAR1), $(GLOBAL_VAR1), $(ADHOC_VAR1)'
-  - script: |
-      echo running conditional script..
-    displayName: 'Conditional script'
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/')
-  - script: |
-      docker logout
-    condition: always()
-- job: 'Ubuntu_1604_B'
-  dependsOn: 'Ubuntu_1604'
-  continueOnError: false
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - script: |
-      echo hello from job b!
+stages:
+- stage: Build_Test_Publish
+  displayName: Build, Test, Publish
+  jobs:
+  - job: Linux
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+    - script: |
+        whoami
+        cat /etc/*release
+        lscpu
+        df -h
+        free
+        docker info
+        docker version
+    - task: GitHubRelease@0
+      inputs:
+        gitHubConnection: release
+        repositoryName: $(Build.Repository.Name)
+        action: create # Options: create, edit, delete
+        target: $(Build.SourceVersion) # Required when action == Create || Action == Edit
+        tagSource: auto # Required when action == Create# Options: auto, manual
+        # tagPattern: # Optional
+        # tag: # Required when action == Edit || Action == Delete || TagSource == Manual
+        # title: # Optional
+        # releaseNotesSource: input # Optional. Options: file, input
+        # releaseNotesFile: # Optional
+        # releaseNotes: # Optional
+        # assets: '$(Build.ArtifactStagingDirectory)/*' # Optional
+        # assetUploadMode: 'delete' # Optional. Options: delete, replace
+        isDraft: false # Optional
+        isPreRelease: false # Optional
+        addChangeLog: true # Optional
+        # compareWith: 'lastFullRelease' # Required when addChangeLog == True. Options: lastFullRelease, lastRelease, lastReleaseByTag
+        # releaseTag: # Required when compareWith == LastReleaseByTag
