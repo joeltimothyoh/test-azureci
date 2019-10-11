@@ -68,6 +68,14 @@ stages:
     - checkout: self
       submodules: true
     - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  - job: vs2015win2012r2
+    pool:
+      vmImage: vs2015-win2012r2
+    steps:
+    - checkout: self
+      submodules: true
+    - powershell: |
+        Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201'
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
