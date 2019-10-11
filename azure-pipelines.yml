@@ -40,6 +40,27 @@ stages:
     - checkout: self
       submodules: true
     - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
+  - job: windows2019_powershell
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: true
+    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  - job: vs2017win2016_powershell
+    pool:
+      vmImage: vs2017-win2016
+    steps:
+    - checkout: self
+      submodules: true
+    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  - job: win1803_powershell
+    pool:
+      vmImage: win1803
+    steps:
+    - checkout: self
+      submodules: true
+    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
   - job: vs2015win2012r2
     pool:
       vmImage: vs2015-win2012r2
