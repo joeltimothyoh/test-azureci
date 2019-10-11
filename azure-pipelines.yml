@@ -25,84 +25,204 @@ stages:
     steps:
     - checkout: self
       submodules: true
-    - pwsh: |
+    - powershell: |
         Get-ChildItem -Recurse
     - pwsh: |
-        Get-Module PowerShellGet -ListAvailable | Select *
-    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
-    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
     - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Installing PowerShellGet" | Write-Host
         $powershellGetRequiredVersion = '2.1.2'
         $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: vs2017win2016
     pool:
       vmImage: vs2017-win2016
     steps:
     - checkout: self
       submodules: true
-    - pwsh: |
+    - powershell: |
         Get-ChildItem -Recurse
     - pwsh: |
-        Get-Module PowerShellGet -ListAvailable | Select *
-    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
-    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
     - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Installing PowerShellGet" | Write-Host
         $powershellGetRequiredVersion = '2.1.2'
         $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: win1803
     pool:
       vmImage: win1803
     steps:
     - checkout: self
       submodules: true
-    - pwsh: |
+    - powershell: |
         Get-ChildItem -Recurse
     - pwsh: |
-        Get-Module PowerShellGet -ListAvailable | Select *
-    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
-    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
     - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        "Elevated: $elevated"
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Installing PowerShellGet" | Write-Host
         $powershellGetRequiredVersion = '2.1.2'
         $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: vs2015win2012r2
     pool:
       vmImage: vs2015-win2012r2
     steps:
     - checkout: self
       submodules: true
-    - pwsh: |
+    - powershell: |
         Get-ChildItem -Recurse
-    - pwsh: |
-        Get-Module PowerShellGet -ListAvailable | Select *
-    - pwsh: |
+    # - pwsh: |
+    #     $ErrorActionPreference = 'Stop'
+    #     $VerbosePreference = 'Continue'
+    #     $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    #     "Elevated: $elevated"
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
-    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+    # - pwsh: |
+    #     $ErrorActionPreference = 'Stop'
+    #     $VerbosePreference = 'Continue'
+    #     Get-Module PowerShellGet -ListAvailable | Select *
+    #     Get-Module PackageManagement -ListAvailable | Select *
     - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    # - pwsh: |
+    #     $ErrorActionPreference = 'Stop'
+    #     $VerbosePreference = 'Continue'
+    #     "Installing PowerShellGet" | Write-Host
+    #     $powershellGetRequiredVersion = '2.1.2'
+    #     $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+    #     if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+    #         Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+    #     }
+    #     Get-Module PowerShellGet -ListAvailable | Select *
+    #     Get-Module PackageManagement -ListAvailable | Select *
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Installing PowerShellGet" | Write-Host
         $powershellGetRequiredVersion = '2.1.2'
         $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+    # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
