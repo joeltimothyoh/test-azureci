@@ -232,7 +232,6 @@ stages:
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
     # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
@@ -246,6 +245,11 @@ stages:
     #     Get-Module PowerShellGet -ListAvailable | Select *
     #     Get-Module PackageManagement -ListAvailable | Select *
     #   displayName: Install modules (pwsh)
+    - powershell: |
+        "Installing Nuget" | Write-Host
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Get-PackageProvider NuGet | Select *
+      displayName: Install package provider (powershell)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
