@@ -103,6 +103,14 @@ stages:
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
     - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (powershell)
+    - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable
@@ -202,6 +210,14 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -303,6 +319,14 @@ stages:
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
     - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (powershell)
+    - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable
@@ -402,6 +426,14 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    # - pwsh: |
+    #     Get-PackageProvider -ListAvailable
+    #     Get-PackageProvider -ListAvailable | Select *
+    #   displayName: Check installed package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check installed package providers (powershell)
     # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
     #     $VerbosePreference = 'Continue'
