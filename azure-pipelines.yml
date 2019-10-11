@@ -13,7 +13,7 @@ resources:
     type: github
     name: theohbrothers/PSModulePublisher
     endpoint: joeltimothyoh
-    ref: refs/heads/dev-powershell
+    ref: refs/heads/dev-invoke-build-stdout
 
 stages:
 - stage: Build_Test
