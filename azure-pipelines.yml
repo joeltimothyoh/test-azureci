@@ -33,6 +33,13 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+    - powershell: |
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
   - job: vs2017win2016
     pool:
       vmImage: vs2017-win2016
@@ -47,6 +54,13 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+    - powershell: |
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
   - job: win1803
     pool:
       vmImage: win1803
@@ -61,6 +75,13 @@ stages:
         $elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
         "Elevated: $elevated"
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
+    - powershell: |
+        "Installing PowerShellGet" | Write-Host
+        $powershellGetRequiredVersion = '2.1.2'
+        $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+        if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+        }
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
