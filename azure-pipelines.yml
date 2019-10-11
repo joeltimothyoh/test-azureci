@@ -41,19 +41,39 @@ stages:
         "Elevated: $elevated"
       displayName: Check for elevation (powershell)
     - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (powershell)
+    - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
+    # - pwsh: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
+    # - powershell: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -63,6 +83,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (pwsh)
@@ -75,6 +97,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
@@ -101,19 +125,39 @@ stages:
         "Elevated: $elevated"
       displayName: Check for elevation (powershell)
     - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (powershell)
+    - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
+    # - pwsh: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
+    # - powershell: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -123,6 +167,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (pwsh)
@@ -135,6 +181,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
@@ -161,19 +209,39 @@ stages:
         "Elevated: $elevated"
       displayName: Check for elevation (powershell)
     - pwsh: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (powershell)
+    - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
-        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
+    # - pwsh: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
+    # - powershell: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -183,6 +251,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (pwsh)
@@ -195,6 +265,8 @@ stages:
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
             Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
@@ -221,18 +293,39 @@ stages:
         "Elevated: $elevated"
       displayName: Check for elevation (powershell)
     # - pwsh: |
+    #     Get-PackageProvider -ListAvailable
+    #     Get-PackageProvider -ListAvailable | Select *
+    #   displayName: Check package providers (pwsh)
+    - powershell: |
+        Get-PackageProvider -ListAvailable
+        Get-PackageProvider -ListAvailable | Select *
+      displayName: Check package providers (powershell)
+    # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
     #     $VerbosePreference = 'Continue'
+    #     Get-Module PowerShellGet -ListAvailable
+    #     Get-Module PackageManagement -ListAvailable
     #     Get-Module PowerShellGet -ListAvailable | Select *
     #     Get-Module PackageManagement -ListAvailable | Select *
-        # Get-PackageProvider NuGet | Select *
     #   displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Check installed modules (powershell)
+    # - pwsh: |
+    #     "Installing Nuget" | Write-Host
+    #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    #     Get-PackageProvider NuGet | Select *
+    #   displayName: Install package provider (powershell)
+    - powershell: |
+        "Installing Nuget" | Write-Host
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Get-PackageProvider NuGet | Select *
+      displayName: Install package provider (powershell)
     # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
     #     $VerbosePreference = 'Continue'
@@ -242,14 +335,11 @@ stages:
     #     if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
     #         Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
     #     }
+    #     Get-Module PowerShellGet -ListAvailable
+    #     Get-Module PackageManagement -ListAvailable
     #     Get-Module PowerShellGet -ListAvailable | Select *
     #     Get-Module PackageManagement -ListAvailable | Select *
     #   displayName: Install modules (pwsh)
-    - powershell: |
-        "Installing Nuget" | Write-Host
-        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-        Get-PackageProvider NuGet | Select *
-      displayName: Install package provider (powershell)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -257,8 +347,10 @@ stages:
         $powershellGetRequiredVersion = '2.1.2'
         $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
         if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
-            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force -Confirm:$false
+            Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
         }
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
