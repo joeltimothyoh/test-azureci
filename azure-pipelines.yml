@@ -44,12 +44,14 @@ stages:
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
@@ -101,12 +103,14 @@ stages:
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
@@ -158,12 +162,14 @@ stages:
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
@@ -215,12 +221,14 @@ stages:
     #     $VerbosePreference = 'Continue'
     #     Get-Module PowerShellGet -ListAvailable | Select *
     #     Get-Module PackageManagement -ListAvailable | Select *
+        # Get-PackageProvider NuGet | Select *
     #   displayName: Check installed modules (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
+        Get-PackageProvider NuGet | Select *
       displayName: Check installed modules (powershell)
     # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
