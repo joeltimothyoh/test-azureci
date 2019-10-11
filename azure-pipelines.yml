@@ -102,6 +102,22 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (pwsh)
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (powershell)
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: vs2017win2016
     pool:
@@ -186,6 +202,22 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (pwsh)
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (powershell)
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: win1803
     pool:
@@ -270,6 +302,22 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (pwsh)
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (powershell)
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: vs2015win2012r2
     pool:
@@ -354,6 +402,22 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Install modules (powershell)
+    # - pwsh: |
+    #     $ErrorActionPreference = 'Stop'
+    #     $VerbosePreference = 'Continue'
+    #     Get-Module PowerShellGet -ListAvailable
+    #     Get-Module PackageManagement -ListAvailable
+    #     Get-Module PowerShellGet -ListAvailable | Select *
+    #     Get-Module PackageManagement -ListAvailable | Select *
+    #   displayName: Check installed modules (pwsh)
+    - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
+        Get-Module PowerShellGet -ListAvailable
+        Get-Module PackageManagement -ListAvailable
+        Get-Module PowerShellGet -ListAvailable | Select *
+        Get-Module PackageManagement -ListAvailable | Select *
+      displayName: Check installed modules (powershell)
     # - template: azure-pipelines/windows/continuous-build.yml@PSModulePublisher
   - job: ubuntu1604
     pool:
