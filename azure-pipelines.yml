@@ -70,7 +70,7 @@ stages:
     - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
   - job: vs2015win2012r2
     pool:
-      vmImage: vs2015-win2012r2
+      vmImage: vs2015-win2012r2-debug
     steps:
     - checkout: self
       submodules: true
