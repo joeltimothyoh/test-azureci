@@ -27,6 +27,7 @@ stages:
       submodules: true
     - powershell: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -86,6 +87,7 @@ stages:
       submodules: true
     - powershell: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -145,6 +147,7 @@ stages:
       submodules: true
     - powershell: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -204,6 +207,7 @@ stages:
       submodules: true
     - powershell: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     # - pwsh: |
     #     $ErrorActionPreference = 'Stop'
     #     $VerbosePreference = 'Continue'
@@ -264,6 +268,7 @@ stages:
       submodules: true
     - pwsh: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         Get-Module PowerShellGet -ListAvailable | Select *
     # - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
@@ -275,6 +280,7 @@ stages:
       submodules: true
     - pwsh: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         Get-Module PowerShellGet -ListAvailable | Select *
     # - template: azure-pipelines/macos/continuous-build.yml@PSModulePublisher
@@ -286,6 +292,7 @@ stages:
       submodules: true
     - pwsh: |
         Get-ChildItem -Recurse
+      displayName: Display project paths
     - pwsh: |
         Get-Module PowerShellGet -ListAvailable | Select *
     # - template: azure-pipelines/macos/continuous-build.yml@PSModulePublisher
