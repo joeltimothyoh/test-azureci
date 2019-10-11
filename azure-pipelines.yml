@@ -75,7 +75,7 @@ stages:
     - checkout: self
       submodules: true
     - powershell: |
-        Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201'
+        Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201' -Force
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
