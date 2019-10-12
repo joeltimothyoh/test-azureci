@@ -56,6 +56,12 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Check pre-installed modules (pwsh)
+    - pwsh: |
+        # "Installing dotnet" | Write-Host
+        # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+        "Invoking dotnet" | Write-Host
+        dotnet --info
+      displayName: Install dotnet (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -164,6 +170,12 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Check pre-installed modules (pwsh)
+    - pwsh: |
+        # "Installing dotnet" | Write-Host
+        # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+        "Invoking dotnet" | Write-Host
+        dotnet --info
+      displayName: Install dotnet (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -272,6 +284,12 @@ stages:
         Get-Module PowerShellGet -ListAvailable | Select *
         Get-Module PackageManagement -ListAvailable | Select *
       displayName: Check pre-installed modules (pwsh)
+    - pwsh: |
+        # "Installing dotnet" | Write-Host
+        # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+        "Invoking dotnet" | Write-Host
+        dotnet --info
+      displayName: Install dotnet (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -380,6 +398,12 @@ stages:
     #     Get-Module PowerShellGet -ListAvailable | Select *
     #     Get-Module PackageManagement -ListAvailable | Select *
     #   displayName: Check pre-installed modules (pwsh)
+    - powershell: |
+        # "Installing dotnet" | Write-Host
+        # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+        "Invoking dotnet" | Write-Host
+        dotnet --info
+      displayName: Install dotnet (powershell)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
