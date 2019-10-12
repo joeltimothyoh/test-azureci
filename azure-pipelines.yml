@@ -478,10 +478,6 @@ stages:
         # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
         "Invoking dotnet" | Write-Host
         dotnet --info
-        "Runtimes:" | Write-Host
-        dotnet --list-runtimes
-        "SDKs:" | Write-Host
-        dotnet --list-sdks
       displayName: Install dotnet (pwsh)
     - pwsh: |
         "Installing Nuget" | Write-Host
@@ -541,10 +537,6 @@ stages:
         # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
         "Invoking dotnet" | Write-Host
         dotnet --info
-        "Runtimes:" | Write-Host
-        dotnet --list-runtimes
-        "SDKs:" | Write-Host
-        dotnet --list-sdks
       displayName: Install dotnet (pwsh)
     - pwsh: |
         "Installing Nuget" | Write-Host
@@ -604,10 +596,6 @@ stages:
         # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
         "Invoking dotnet" | Write-Host
         dotnet --info
-        "Runtimes:" | Write-Host
-        dotnet --list-runtimes
-        "SDKs:" | Write-Host
-        dotnet --list-sdks
       displayName: Install dotnet (pwsh)
     - pwsh: |
         "Installing Nuget" | Write-Host
