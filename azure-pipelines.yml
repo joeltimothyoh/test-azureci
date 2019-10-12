@@ -49,14 +49,14 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/windows-powershell.yml
-  - job: vs2017win2016
+  - job: vs2017win2016_powershell
     pool:
       vmImage: vs2017-win2016
     steps:
     - checkout: self
       submodules: true
     - template: azure-pipelines/windows-powershell.yml
-  - job: win1803
+  - job: win1803_powershell
     pool:
       vmImage: win1803
     steps:
