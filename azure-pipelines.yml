@@ -18,6 +18,7 @@ resources:
 stages:
 - stage: Build_Test
   displayName: Build, Test
+
   jobs:
   - job: windows2019
     pool:
@@ -40,6 +41,28 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/windows-pwsh.yml
+
+  - job: windows2019_powershell
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/windows-powershell.yml
+  - job: vs2017win2016
+    pool:
+      vmImage: vs2017-win2016
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/windows-powershell.yml
+  - job: win1803
+    pool:
+      vmImage: win1803
+    steps:
+    - checkout: self
+      submodules: true
+    - template: azure-pipelines/windows-powershell.yml
   - job: vs2015win2012r2
     pool:
       vmImage: vs2015-win2012r2
@@ -47,6 +70,7 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/windows-powershell.yml
+
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
@@ -55,6 +79,7 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/linux.yml
+
   - job: macOS1013
     pool:
       vmImage: macOS-10.13
@@ -62,6 +87,9 @@ stages:
     - checkout: self
       submodules: true
     - template: azure-pipelines/macos.yml
+
+
+
 
 # - stage: Publish
 #   # dependsOn:
