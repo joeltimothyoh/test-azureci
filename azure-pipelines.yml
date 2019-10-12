@@ -93,7 +93,7 @@ stages:
         6.2.0:
           containerImage: joeltimothyoh/powershell:6.2.0-ubuntu-18.04-git
     container: $[ variables['containerImage'] ]
-    displayName: "[Linux] [PowerShell Core $(System.JobName)]"
+    displayName: '[Linux] [PowerShell Core $(System.JobName)]'
     steps:
     - checkout: self
       submodules: true
