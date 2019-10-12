@@ -63,11 +63,14 @@ stages:
         dotnet --info
       displayName: Install dotnet (pwsh)
     - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
         if (!(Test-Path -Path $nugetBinPath -PathType Leaf)) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
+        Get-ChildItem -Path (Split-Path -Path $nugetBinPath -Parent) -ErrorAction SilentlyContinue
         & $nugetBinPath
       displayName: Install publishing dependencies (pwsh)
     - powershell: |
@@ -185,11 +188,14 @@ stages:
         dotnet --info
       displayName: Install dotnet (pwsh)
     - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
-        if (!(!(Test-Path -Path $nugetBinPath -PathType Leaf))) {
+        if (!(Test-Path -Path $nugetBinPath -PathType Leaf)) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
+        Get-ChildItem -Path (Split-Path -Path $nugetBinPath -Parent) -ErrorAction SilentlyContinue
         & $nugetBinPath
       displayName: Install publishing dependencies (pwsh)
     - powershell: |
@@ -307,11 +313,14 @@ stages:
         dotnet --info
       displayName: Install dotnet (pwsh)
     - pwsh: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
         if (!(Test-Path -Path $nugetBinPath -PathType Leaf)) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
+        Get-ChildItem -Path (Split-Path -Path $nugetBinPath -Parent) -ErrorAction SilentlyContinue
         & $nugetBinPath
       displayName: Install publishing dependencies (pwsh)
     - powershell: |
@@ -429,11 +438,14 @@ stages:
         dotnet --info
       displayName: Install dotnet (powershell)
     - powershell: |
+        $ErrorActionPreference = 'Stop'
+        $VerbosePreference = 'Continue'
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
         if (!(Test-Path -Path $nugetBinPath -PathType Leaf)) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
+        Get-ChildItem -Path (Split-Path -Path $nugetBinPath -Parent) -ErrorAction SilentlyContinue
         & $nugetBinPath
       displayName: Install publishing dependencies (powershell)
     - powershell: |
