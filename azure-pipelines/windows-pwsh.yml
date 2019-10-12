@@ -13,12 +13,6 @@ steps:
     Get-PackageProvider -ListAvailable | Select *
   displayName: Check pre-installed package providers (pwsh)
 - pwsh: |
-    # "Installing dotnet" | Write-Host
-    # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
-    "Invoking dotnet" | Write-Host
-    dotnet --info
-  displayName: Install dotnet (pwsh)
-- pwsh: |
     $ErrorActionPreference = 'Stop'
     $VerbosePreference = 'Continue'
     Get-Module PowerShellGet -ListAvailable
@@ -26,6 +20,12 @@ steps:
     Get-Module PowerShellGet -ListAvailable | Select *
     Get-Module PackageManagement -ListAvailable | Select *
   displayName: Check pre-installed modules (pwsh)
+- pwsh: |
+    # "Installing dotnet" | Write-Host
+    # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+    "Invoking dotnet" | Write-Host
+    dotnet --info
+  displayName: Install dotnet (pwsh)
 # - pwsh: |
 #     "Installing Nuget" | Write-Host
 #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -49,6 +49,7 @@ steps:
     $ErrorActionPreference = 'Stop'
     $VerbosePreference = 'Continue'
     "Checking for NuGet binary"
+    Get-ChildItem -Path "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell" -Recurse
     $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
     if (!(Test-Path -Path $nugetBinPath -PathType Leaf)) {
         Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
