@@ -65,7 +65,7 @@ stages:
     - pwsh: |
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
-        if ($!nugetBinPath) {
+        if (Test-Path -Path $nugetBinPath -PathType Leaf) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
         & $nugetBinPath
@@ -187,7 +187,7 @@ stages:
     - pwsh: |
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
-        if ($!nugetBinPath) {
+        if (Test-Path -Path $nugetBinPath -PathType Leaf) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
         & $nugetBinPath
@@ -309,7 +309,7 @@ stages:
     - pwsh: |
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
-        if ($!nugetBinPath) {
+        if (Test-Path -Path $nugetBinPath -PathType Leaf) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
         & $nugetBinPath
@@ -431,7 +431,7 @@ stages:
     - powershell: |
         "Checking for NuGet binary"
         $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
-        if ($!nugetBinPath) {
+        if (Test-Path -Path $nugetBinPath -PathType Leaf) {
             Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
         }
         & $nugetBinPath
