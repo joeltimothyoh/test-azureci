@@ -19,85 +19,99 @@ stages:
 - stage: Build_Test
   displayName: Build, Test
   jobs:
-  - job: windows2019
-    pool:
-      vmImage: windows-2019
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
-  - job: vs2017win2016
-    pool:
-      vmImage: vs2017-win2016
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
-  - job: win1803
-    pool:
-      vmImage: win1803
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
-  - job: windows2019_powershell
-    pool:
-      vmImage: windows-2019
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
-  - job: vs2017win2016_powershell
-    pool:
-      vmImage: vs2017-win2016
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
-  - job: win1803_powershell
-    pool:
-      vmImage: win1803
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
-  - job: vs2015win2012r2
-    pool:
-      vmImage: vs2015-win2012r2
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
-  - job: vs2015win2012r2_debug
-    pool:
-      vmImage: vs2015-win2012r2
-    steps:
-    - checkout: self
-      submodules: true
-    - powershell: |
-        Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201' -Force
+  # - job: windows2019
+  #   pool:
+  #     vmImage: windows-2019
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
+  # - job: vs2017win2016
+  #   pool:
+  #     vmImage: vs2017-win2016
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
+  # - job: win1803
+  #   pool:
+  #     vmImage: win1803
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/pwsh/continuous-build.yml@PSModulePublisher
+  # - job: windows2019_powershell
+  #   pool:
+  #     vmImage: windows-2019
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  # - job: vs2017win2016_powershell
+  #   pool:
+  #     vmImage: vs2017-win2016
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  # - job: win1803_powershell
+  #   pool:
+  #     vmImage: win1803
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  # - job: vs2015win2012r2
+  #   pool:
+  #     vmImage: vs2015-win2012r2
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/windows/powershell/continuous-build.yml@PSModulePublisher
+  # - job: vs2015win2012r2_debug
+  #   pool:
+  #     vmImage: vs2015-win2012r2
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - powershell: |
+  #       Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201' -Force
+  # - job: ubuntu1604
+  #   pool:
+  #     vmImage: ubuntu-16.04
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/linux/continuous-build.yml@PSModulePublisher
   - job: ubuntu1604
     pool:
       vmImage: ubuntu-16.04
-    # container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    strategy:
+      matrix:
+        6.1.0:
+          containerImage: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+        6.2.0:
+          containerImage: joeltimothyoh/powershell:6.2.0-ubuntu-18.04-git
+    container: $[ variables['containerImage'] ]
+    displayName: "[Linux] [PowerShell Core $[ variables['containerImage'] ]]"
     steps:
     - checkout: self
       submodules: true
     - template: templates/azure-pipelines/linux/continuous-build.yml@PSModulePublisher
-  - job: macOS1014
-    pool:
-      vmImage: macOS-10.14
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/macos/continuous-build.yml@PSModulePublisher
-  - job: macOS1013
-    pool:
-      vmImage: macOS-10.13
-    steps:
-    - checkout: self
-      submodules: true
-    - template: templates/azure-pipelines/macos/continuous-build.yml@PSModulePublisher
+  # - job: macOS1014
+  #   pool:
+  #     vmImage: macOS-10.14
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/macos/continuous-build.yml@PSModulePublisher
+  # - job: macOS1013
+  #   pool:
+  #     vmImage: macOS-10.13
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: templates/azure-pipelines/macos/continuous-build.yml@PSModulePublisher
 # - stage: Publish
 #   # dependsOn:
 #   # - Build_Test
