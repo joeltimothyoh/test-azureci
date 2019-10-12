@@ -1,0 +1,54 @@
+steps:
+- pwsh: |
+    Get-ChildItem -Recurse
+  displayName: Display project paths
+- pwsh: |
+    Get-PackageProvider -ListAvailable
+    Get-PackageProvider -ListAvailable | Select *
+  displayName: Check pre-installed package providers (pwsh)
+- pwsh: |
+    $ErrorActionPreference = 'Stop'
+    $VerbosePreference = 'Continue'
+    Get-Module PowerShellGet -ListAvailable
+    Get-Module PackageManagement -ListAvailable
+    Get-Module PowerShellGet -ListAvailable | Select *
+    Get-Module PackageManagement -ListAvailable | Select *
+  displayName: Check pre-installed modules (pwsh)
+- pwsh: |
+    # "Installing dotnet" | Write-Host
+    # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
+    "Invoking dotnet" | Write-Host
+    dotnet --info
+  displayName: Install dotnet (pwsh)
+- pwsh: |
+    "Installing Nuget" | Write-Host
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Get-PackageProvider NuGet | Select *
+  displayName: Install package provider (pwsh)
+- pwsh: |
+    $ErrorActionPreference = 'Stop'
+    $VerbosePreference = 'Continue'
+    "Installing PowerShellGet" | Write-Host
+    $powershellGetRequiredVersion = '2.1.2'
+    $powershellGetInstalledVersions = (Get-Module 'PowerShellGet' -ListAvailable).Version | % { $_.ToString() }
+    if ($powershellGetRequiredVersion -notin $powershellGetInstalledVersions) {
+        Install-Module -Name 'PowershellGet' -Repository 'PSGallery' -RequiredVersion $powershellGetRequiredVersion -Scope CurrentUser -Force
+    }
+    Get-Module PowerShellGet -ListAvailable
+    Get-Module PackageManagement -ListAvailable
+    Get-Module PowerShellGet -ListAvailable | Select *
+    Get-Module PackageManagement -ListAvailable | Select *
+  displayName: Install modules (pwsh)
+- pwsh: |
+    Get-PackageProvider -ListAvailable
+    Get-PackageProvider -ListAvailable | Select *
+  displayName: Check installed package providers (pwsh)
+- pwsh: |
+    $ErrorActionPreference = 'Stop'
+    $VerbosePreference = 'Continue'
+    Get-Module PowerShellGet -ListAvailable
+    Get-Module PackageManagement -ListAvailable
+    Get-Module PowerShellGet -ListAvailable | Select *
+    Get-Module PackageManagement -ListAvailable | Select *
+  displayName: Check installed modules (pwsh)
+# - template: azure-pipelines/linux/continuous-build.yml@PSModulePublisher
