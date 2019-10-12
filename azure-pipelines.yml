@@ -71,22 +71,22 @@ stages:
       submodules: true
     - template: azure-pipelines/windows-powershell.yml
 
-  - job: ubuntu1604
-    pool:
-      vmImage: ubuntu-16.04
-    # container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-    steps:
-    - checkout: self
-      submodules: true
-    - template: azure-pipelines/linux.yml
+  # - job: ubuntu1604
+  #   pool:
+  #     vmImage: ubuntu-16.04
+  #   # container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: azure-pipelines/linux.yml
 
-  - job: macOS1013
-    pool:
-      vmImage: macOS-10.13
-    steps:
-    - checkout: self
-      submodules: true
-    - template: azure-pipelines/macos.yml
+  # - job: macOS1013
+  #   pool:
+  #     vmImage: macOS-10.13
+  #   steps:
+  #   - checkout: self
+  #     submodules: true
+  #   - template: azure-pipelines/macos.yml
 
 
 
