@@ -68,7 +68,7 @@ stages:
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     #     Get-PackageProvider NuGet | Select *
-    #   displayName: Install package provider (powershell)
+    #   displayName: Install package provider (pwsh)
     # - powershell: |
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -176,7 +176,7 @@ stages:
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     #     Get-PackageProvider NuGet | Select *
-    #   displayName: Install package provider (powershell)
+    #   displayName: Install package provider (pwsh)
     # - powershell: |
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -284,7 +284,7 @@ stages:
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     #     Get-PackageProvider NuGet | Select *
-    #   displayName: Install package provider (powershell)
+    #   displayName: Install package provider (pwsh)
     # - powershell: |
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -392,7 +392,7 @@ stages:
     #     "Installing Nuget" | Write-Host
     #     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     #     Get-PackageProvider NuGet | Select *
-    #   displayName: Install package provider (powershell)
+    #   displayName: Install package provider (pwsh)
     - powershell: |
         "Installing Nuget" | Write-Host
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -481,7 +481,7 @@ stages:
         "Installing Nuget" | Write-Host
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Get-PackageProvider NuGet | Select *
-      displayName: Install package provider (powershell)
+      displayName: Install package provider (pwsh)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -538,7 +538,7 @@ stages:
         "Installing Nuget" | Write-Host
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Get-PackageProvider NuGet | Select *
-      displayName: Install package provider (powershell)
+      displayName: Install package provider (pwsh)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -595,7 +595,7 @@ stages:
         "Installing Nuget" | Write-Host
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Get-PackageProvider NuGet | Select *
-      displayName: Install package provider (powershell)
+      displayName: Install package provider (pwsh)
     - pwsh: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
