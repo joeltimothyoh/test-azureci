@@ -84,6 +84,7 @@ stages:
   #     submodules: true
   #   - template: templates/azure-pipelines/linux/continuous-build.yml@PSModulePublisher
   - job: ubuntu1604
+    displayName: '[Linux] [Container] PowerShell'
     pool:
       vmImage: ubuntu-16.04
     strategy:
@@ -93,7 +94,6 @@ stages:
         6.2.0:
           containerImage: joeltimothyoh/powershell:6.2.0-ubuntu-18.04-git
     container: $[ variables['containerImage'] ]
-    displayName: '[Linux] [Container] PowerShell'
     steps:
     - checkout: self
       submodules: true
