@@ -62,6 +62,14 @@ stages:
         "Invoking dotnet" | Write-Host
         dotnet --info
       displayName: Install dotnet (pwsh)
+    - pwsh: |
+        "Checking for NuGet binary"
+        $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+        if ($!nugetBinPath) {
+            Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
+        }
+        & $nugetBinPath
+      displayName: Install publishing dependencies (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -176,6 +184,14 @@ stages:
         "Invoking dotnet" | Write-Host
         dotnet --info
       displayName: Install dotnet (pwsh)
+    - pwsh: |
+        "Checking for NuGet binary"
+        $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+        if ($!nugetBinPath) {
+            Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
+        }
+        & $nugetBinPath
+      displayName: Install publishing dependencies (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -290,6 +306,14 @@ stages:
         "Invoking dotnet" | Write-Host
         dotnet --info
       displayName: Install dotnet (pwsh)
+    - pwsh: |
+        "Checking for NuGet binary"
+        $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+        if ($!nugetBinPath) {
+            Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
+        }
+        & $nugetBinPath
+      displayName: Install publishing dependencies (pwsh)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
@@ -404,6 +428,14 @@ stages:
         "Invoking dotnet" | Write-Host
         dotnet --info
       displayName: Install dotnet (powershell)
+    - powershell: |
+        "Checking for NuGet binary"
+        $nugetBinPath = "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+        if ($!nugetBinPath) {
+            Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile $nugetBinPath
+        }
+        & $nugetBinPath
+      displayName: Install publishing dependencies (powershell)
     - powershell: |
         $ErrorActionPreference = 'Stop'
         $VerbosePreference = 'Continue'
