@@ -3,88 +3,40 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-jobs:
-- job: WindowsServer2019
-  pool:
-    vmImage: 'windows-2019'
-  steps:
-  - powershell: |
-      hostname
-      whoami
-      systeminfo
-      Get-PSDrive
-      $PSVersionTable | Out-String
-      Get-Location
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+pr: none
 
-- job: WindowsServer2016
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - powershell: |
-      hostname
-      whoami
-      systeminfo
-      Get-PSDrive
-      $PSVersionTable | Out-String
-      Get-Location
-
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      hostname
-      whoami
-      systeminfo
-      Get-PSDrive
-      $PSVersionTable | Out-String
-      Get-Location
-
-- job: WindowsServer1803
-  pool:
-    vmImage: 'win1803'
-  steps:
-  - powershell: |
-      hostname
-      whoami
-      systeminfo
-      Get-PSDrive
-      $PSVersionTable | Out-String
-      Get-Location
-
-- job: Ubuntu1604
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - script: |
-      hostname
-      whoami
-      cat /etc/*release
-      lscpu
-      free
-      df -h
-      pwd
-
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - script: |
-      hostname
-      whoami
-      system_profiler -detailLevel mini
-      top -l 1 -s 0 | grep PhysMem
-      df -h
-      pwd
-
-- job: macOS1014
-  pool:
-    vmImage: 'macOS-10.14'
-  steps:
-  - script: |
-      hostname
-      whoami
-      system_profiler -detailLevel mini
-      top -l 1 -s 0 | grep PhysMem
-      df -h
-      pwd
+stages:
+- stage: stage_1
+  jobs:
+  - job: job_1
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - pwsh: 'hi'
+  - job: job_2
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+    - checkout: self
+      submodules: recursive
+    - bash: 'echo hi'
+- stage: stage_2
+  dependsOn:
+  - stage_1
+  jobs:
+  - job: job_1
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - pwsh: 'hi'
