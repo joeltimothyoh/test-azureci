@@ -93,11 +93,11 @@ stages:
         6.2.0:
           containerImage: joeltimothyoh/powershell:6.2.0-ubuntu-18.04-git
     container: $[ variables['containerImage'] ]
-    displayName: '[Linux] [PowerShell Core]'
+    displayName: '$(Build.SourceBranchName), $(System.JobName)'
     steps:
     - checkout: self
       submodules: true
-    - template: templates/azure-pipelines/linux/continuous-build.yml@PSModulePublisher
+    # - template: templates/azure-pipelines/linux/continuous-build.yml@PSModulePublisher
   # - job: macOS1014
   #   pool:
   #     vmImage: macOS-10.14
