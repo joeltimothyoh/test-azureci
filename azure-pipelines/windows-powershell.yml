@@ -25,6 +25,10 @@ steps:
     # Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'*
     "Invoking dotnet" | Write-Host
     dotnet --info
+    if ($PSVersionTable.PSVersion -lt '5.1') {
+        "Installing dotnet" | Write-Host
+        Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'
+    }
   displayName: Install dotnet (powershell)
 - powershell: |
     "Installing Nuget" | Write-Host
