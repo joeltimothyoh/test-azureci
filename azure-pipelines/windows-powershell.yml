@@ -28,6 +28,7 @@ steps:
     if ($PSVersionTable.PSVersion -lt '5.1') {
         "Installing dotnet" | Write-Host
         Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1' -Channel Current -Version '2.0.0'
+        dotnet --info
     }
   displayName: Install dotnet (powershell)
 - powershell: |
