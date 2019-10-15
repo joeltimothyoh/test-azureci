@@ -56,6 +56,19 @@ jobs:
       $PSVersionTable | Out-String
       Get-Location
 
+- job: Ubuntu1804
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - script: |
+      hostname
+      whoami
+      cat /etc/*release
+      lscpu
+      free
+      df -h
+      pwd
+
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
