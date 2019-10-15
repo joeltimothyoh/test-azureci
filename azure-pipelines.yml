@@ -3,63 +3,22 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-jobs:
-- job: WindowsServer2019
-  pool:
-    vmImage: 'windows-2019'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
 
-- job: WindowsServer2016
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
-
-- job: WindowsServer1803
-  pool:
-    vmImage: 'win1803'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
-
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
-
-- job: Ubuntu1604
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
-
-- job: macOS1013
-  pool:
-    vmImage: 'macOS-10.13'
-  steps:
-  - powershell: |
-      Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
+stages:
+- stage: build_test
+  displayName: Build, Test
+  jobs:
+  - job: windows_powershell_5_0
+    displayName: '[Windows] PowerShell 5.0'
+    pool:
+      vmImage: vs2015-win2012r2
+    steps:
+    - checkout: self
+      submodules: recursive
+    - powershell: |
+        Get-PSDrive
+        $PSVersionTable | Out-String
+    - powershell: |
+        $Erroractionpreference = 'stop'
+        $_qAObject = New-Object -ComObject shell.application
+        $_qAItem = $_qAObject.Namespace("shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}").Items() | Where-Object { $_.IsFolder -eq $true }
