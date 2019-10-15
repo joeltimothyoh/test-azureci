@@ -30,19 +30,6 @@ jobs:
       $PSVersionTable | Out-String
       Get-Location
 
-- job: WindowsServer2012R2
-  pool:
-    vmImage: 'vs2015-win2012r2'
-  steps:
-  - powershell: |
-      hostname
-      whoami
-      systeminfo
-      # Get-ComputerInfo
-      Get-PSDrive
-      $PSVersionTable | Out-String
-      Get-Location
-
 - job: WindowsServer1803
   pool:
     vmImage: 'win1803'
@@ -52,6 +39,19 @@ jobs:
       whoami
       systeminfo
       Get-ComputerInfo
+      Get-PSDrive
+      $PSVersionTable | Out-String
+      Get-Location
+
+- job: WindowsServer2012R2
+  pool:
+    vmImage: 'vs2015-win2012r2'
+  steps:
+  - powershell: |
+      hostname
+      whoami
+      systeminfo
+      # Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
