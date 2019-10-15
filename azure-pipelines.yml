@@ -21,4 +21,6 @@ stages:
     - powershell: |
         $Erroractionpreference = 'stop'
         $_qAObject = New-Object -ComObject shell.application
+        '1'
         $_qAItem = $_qAObject.Namespace("shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}").Items() | Where-Object { $_.IsFolder -eq $true }
+        '1'
