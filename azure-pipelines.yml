@@ -14,7 +14,7 @@ stages:
       vmImage: vs2015-win2012r2
     steps:
     - checkout: self
-      submodules: recursive
+      # submodules: true
     - powershell: |
         Get-PSDrive
         $PSVersionTable | Out-String
