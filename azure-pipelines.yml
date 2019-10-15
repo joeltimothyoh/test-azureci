@@ -12,6 +12,7 @@ jobs:
       hostname
       whoami
       systeminfo
+      Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
@@ -24,6 +25,7 @@ jobs:
       hostname
       whoami
       systeminfo
+      Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
@@ -36,6 +38,7 @@ jobs:
       hostname
       whoami
       systeminfo
+      Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
@@ -48,6 +51,7 @@ jobs:
       hostname
       whoami
       systeminfo
+      Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
