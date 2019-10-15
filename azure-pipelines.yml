@@ -38,7 +38,7 @@ jobs:
       hostname
       whoami
       systeminfo
-      Get-ComputerInfo
+      # Get-ComputerInfo
       Get-PSDrive
       $PSVersionTable | Out-String
       Get-Location
