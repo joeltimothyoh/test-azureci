@@ -17,7 +17,7 @@ stages:
       clean: all
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - pwsh: |
@@ -54,7 +54,7 @@ stages:
       clean: all
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - pwsh: |
@@ -91,7 +91,7 @@ stages:
       clean: all
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - pwsh: |
@@ -129,7 +129,7 @@ stages:
     # container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - bash: |
@@ -173,7 +173,7 @@ stages:
       clean: all
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - bash: |
@@ -210,7 +210,7 @@ stages:
       clean: all
     steps:
     - checkout: self
-      submodules: true
+      # submodules: true
     - pwsh: Get-ChildItem -Recurse
       displayName: Display repository contents
     - bash: |
