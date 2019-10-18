@@ -148,6 +148,9 @@ stages:
         sudo touch /usr/local/
         sudo apt-get update
         sudo apt-get install htop
+        docker run -t --rm alpine:3.8 whoami
+        docker run -t --rm joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git whoami
+        docker run -t --rm joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git bash -c 'apt-get update && apt-get install lib32stdc++6'
       displayName: Check for elevation
     - pwsh: |
         $VerbosePreference = 'Continue'
