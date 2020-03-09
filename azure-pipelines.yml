@@ -44,9 +44,39 @@ jobs:
   - pwsh: |
       $PSVersionTable
 
+- job: Ubuntu1804
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable | Out-String
+  - pwsh: |
+      $PSVersionTable
+
 - job: Ubuntu1604
   pool:
     vmImage: 'ubuntu-16.04'
+  steps:
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable | Out-String
+  - pwsh: |
+      $PSVersionTable
+
+- job: macOS1015
+  pool:
+    vmImage: 'macOS-10.15'
+  steps:
+  - powershell: |
+      Get-PSDrive
+      $PSVersionTable | Out-String
+  - pwsh: |
+      $PSVersionTable
+
+- job: macOS1014
+  pool:
+    vmImage: 'macOS-10.14'
   steps:
   - powershell: |
       Get-PSDrive
