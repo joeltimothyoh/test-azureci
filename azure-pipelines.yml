@@ -10,9 +10,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: WindowsServer2016
   pool:
@@ -20,9 +21,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: WindowsServer1803
   pool:
@@ -30,9 +32,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: WindowsServer2012R2
   pool:
@@ -40,9 +43,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
-  - pwsh: |
-      $PSVersionTable
+      $PSVersionTable | Format-Table
+  # - pwsh: |
+  #     Get-PSDrive
+  #     $PSVersionTable | Format-Table
 
 - job: Ubuntu1804
   pool:
@@ -50,9 +54,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: Ubuntu1604
   pool:
@@ -60,9 +65,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: macOS1015
   pool:
@@ -70,9 +76,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: macOS1014
   pool:
@@ -80,9 +87,10 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
 
 - job: macOS1013
   pool:
@@ -90,6 +98,7 @@ jobs:
   steps:
   - powershell: |
       Get-PSDrive
-      $PSVersionTable | Out-String
+      $PSVersionTable | Format-Table
   - pwsh: |
-      $PSVersionTable
+      Get-PSDrive
+      $PSVersionTable | Format-Table
