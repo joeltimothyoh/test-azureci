@@ -36,7 +36,7 @@ stages:
     - checkout: self
       submodules: recursive
     - bash: |
-        'echo hi'
+        echo hi
       displayName: Build, test, push image
 - stage: stage_2
   dependsOn:
